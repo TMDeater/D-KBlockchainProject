@@ -15,7 +15,7 @@ volumes:
   peer1.hospital.com:
 
 networks:
-  byfn:
+  medicalinsurance:
 
 services:
 
@@ -49,7 +49,7 @@ services:
     ports:
       - 7050:7050
     networks:
-      - byfn
+      - medicalinsurance
 
   peer0.insurance.com:
     container_name: peer0.insurance.com
@@ -88,7 +88,7 @@ services:
     ports:
       - 7051:7051
     networks:
-      - byfn
+      - medicalinsurance
 
   peer1.insurance.com:
     container_name: peer1.insurance.com
@@ -127,7 +127,7 @@ services:
     ports:
       - 8051:8051
     networks:
-      - byfn
+      - medicalinsurance
 
   peer0.bank.com:
     container_name: peer0.bank.com
@@ -166,7 +166,7 @@ services:
     ports:
       - 9051:9051
     networks:
-      - byfn
+      - medicalinsurance
 
   peer1.bank.com:
     container_name: peer1.bank.com
@@ -205,7 +205,7 @@ services:
     ports:
       - 10051:10051
     networks:
-      - byfn
+      - medicalinsurance
   
   peer0.hospital.com:
     container_name: peer0.hospital.com
@@ -244,7 +244,7 @@ services:
     ports:
       - 11051:11051
     networks:
-      - byfn
+      - medicalinsurance
 
   peer1.hospital.com:
     container_name: peer1.hospital.com
@@ -283,7 +283,7 @@ services:
     ports:
       - 12051:12051
     networks:
-      - byfn
+      - medicalinsurance
 
   cli:
     container_name: cli
@@ -320,4 +320,4 @@ services:
       - peer0.hospital.com
       - peer1.hospital.com
     networks:
-      - byfn
+      - medicalinsurance

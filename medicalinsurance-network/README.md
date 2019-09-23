@@ -36,9 +36,16 @@ env
 
 peer channel create -o orderer.insurance.com:7050 -c $CHANNEL_NAME -f ./channel-artifacts/channel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
 
+
+# Error: error getting endorser client for channel: endorser client failed to 
+# connect to peer0.insurance.com:7051:
+
 peer channel join -b $CHANNEL_NAME.block
 
 peer channel list
 
+# Remove docker images and start from scratch
+# docker rm -f $(docker ps -aq)
+# docker rmi -f $(docker images -q)
 
 
