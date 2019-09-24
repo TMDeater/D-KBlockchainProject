@@ -26,10 +26,14 @@ configtxgen -profile MedicalInsuranceChannel -outputCreateChannelTx ./channel-ar
 
 docker-compose -f docker-compose-cli.yaml up -d
 
+# ALTERNATIVE:
+# docker-compose -f docker-compose-cli.yaml up
+
 docker exec -it cli bash
 
 source ./scripts/setGlobalVariables.sh
 
+# connect to peer0.insurance.com:7051:
 source ./scripts/changeToOrg1Peer0.sh
 
 env
@@ -38,11 +42,60 @@ peer channel create -o orderer.insurance.com:7050 -c $CHANNEL_NAME -f ./channel-
 
 # UNRESOLVED:
 # Error: error getting endorser client for channel: endorser client failed to 
-# connect to peer0.insurance.com:7051:
+
+# peer0.insurance.com join medicalinsurancechannel
 
 peer channel join -b $CHANNEL_NAME.block
 
 peer channel list
+
+# peer1.insurance.com join medicalinsurancechannel
+
+source ./scripts/changeToOrg1Peer1.sh
+
+peer channel join -b $CHANNEL_NAME.block
+
+peer channel list
+
+# peer0.bank.com join medicalinsurancechannel
+
+source ./scripts/changeToOrg2Peer0.sh
+
+peer channel join -b $CHANNEL_NAME.block
+
+peer channel list
+
+# peer1.bank.com join medicalinsurancechannel
+
+source ./scripts/changeToOrg2Peer1.sh
+
+peer channel join -b $CHANNEL_NAME.block
+
+peer channel list
+
+# peer0.hospital.com join medicalinsurancechannel
+
+source ./scripts/changeToOrg3Peer0.sh
+
+peer channel join -b $CHANNEL_NAME.block
+
+peer channel list
+
+# peer1.hospital.com join medicalinsurancechannel
+
+source ./scripts/changeToOrg3Peer1.sh
+
+peer channel join -b $CHANNEL_NAME.block
+
+peer channel list
+
+# INSTALL CHAINCODE
+
+# INSTANTIATE CHAINCODE
+
+# QUERY CHAINCODE
+
+# INVOKE CHAINCODE
 
 # TEARDOWN & CLEANUP
 
