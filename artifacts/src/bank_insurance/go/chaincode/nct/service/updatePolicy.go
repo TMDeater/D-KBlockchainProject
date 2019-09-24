@@ -40,4 +40,11 @@ func UpdatePolicyByBankRefID(stub shim.ChaincodeStubInterface, args []string) ([
 	json.Unmarsal(record.Value, &ledgerInfo)
 
 	ledgerInfo.InsurancePolicyNo = insurancePolicyNo
+	ledgerInfo.Status = status
+	ledgerInfo.StatusRemarkk = statusRemark
+
+	ledgerInfoBytesAsJSON, _ := json.Marshal(&ledgerInfo)
+	stub.PutState(bankRefNo, ledgerInfoBytesAsJSON)
+	stub.SetEvent("policyCreated", []byte(bankRefNo))
+	return nil, nil
 }

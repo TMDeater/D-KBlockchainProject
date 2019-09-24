@@ -1,8 +1,6 @@
 package service
 
-import (
-
-	// Add Golang imports here
+import (// Add Golang imports here
 
 	// Add Hyperledger imports here
 	"encoding/json"
