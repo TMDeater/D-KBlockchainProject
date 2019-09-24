@@ -1,0 +1,525 @@
+formssi@formssi-VirtualBox:~$ cd D-KBlockchainProject/medicalinsurance-network/
+formssi@formssi-VirtualBox:~/D-KBlockchainProject/medicalinsurance-network$ docker-compose -f docker-compose-cli.yaml up
+Creating network "net_medicalinsurance" with the default driver
+Creating volume "net_orderer.insurance.com" with default driver
+Creating volume "net_peer0.insurance.com" with default driver
+Creating volume "net_peer1.insurance.com" with default driver
+Creating volume "net_peer0.bank.com" with default driver
+Creating volume "net_peer1.bank.com" with default driver
+Creating volume "net_peer0.hospital.com" with default driver
+Creating volume "net_peer1.hospital.com" with default driver
+Creating peer1.insurance.com   ... done
+Creating orderer.insurance.com ... done
+Creating peer1.bank.com        ... done
+Creating peer1.hospital.com    ... done
+Creating peer0.insurance.com   ... done
+Creating peer0.bank.com        ... done
+Creating peer0.hospital.com    ... done
+Creating cli                   ... done
+Attaching to peer1.insurance.com, peer0.bank.com, peer1.bank.com, peer0.insurance.com, peer0.hospital.com, orderer.insurance.com, peer1.hospital.com, cli
+peer0.bank.com           | 2019-09-24 07:25:48.989 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+peer0.bank.com           |  Version: 1.4.1
+peer0.bank.com           |  Commit SHA: 87074a7
+peer0.bank.com           |  Go version: go1.11.5
+peer0.bank.com           |  OS/Arch: linux/amd64
+peer0.bank.com           |  Chaincode:
+peer0.bank.com           |   Base Image Version: 0.4.15
+peer0.bank.com           |   Base Docker Namespace: hyperledger
+peer0.bank.com           |   Base Docker Label: org.hyperledger.fabric
+peer0.bank.com           |   Docker Namespace: hyperledger
+peer1.insurance.com      | 2019-09-24 07:25:48.924 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+peer1.insurance.com      |  Version: 1.4.1
+peer1.insurance.com      |  Commit SHA: 87074a7
+peer1.insurance.com      |  Go version: go1.11.5
+peer1.insurance.com      |  OS/Arch: linux/amd64
+peer1.insurance.com      |  Chaincode:
+peer1.insurance.com      |   Base Image Version: 0.4.15
+peer1.insurance.com      |   Base Docker Namespace: hyperledger
+peer1.insurance.com      |   Base Docker Label: org.hyperledger.fabric
+peer1.insurance.com      |   Docker Namespace: hyperledger
+peer0.bank.com           | 2019-09-24 07:25:48.992 UTC [ledgermgmt] initialize -> INFO 002 Initializing ledger mgmt
+peer0.bank.com           | 2019-09-24 07:25:48.992 UTC [kvledger] NewProvider -> INFO 003 Initializing ledger provider
+peer1.insurance.com      | 2019-09-24 07:25:48.927 UTC [ledgermgmt] initialize -> INFO 002 Initializing ledger mgmt
+peer1.insurance.com      | 2019-09-24 07:25:48.927 UTC [kvledger] NewProvider -> INFO 003 Initializing ledger provider
+peer1.insurance.com      | 2019-09-24 07:25:48.967 UTC [kvledger] NewProvider -> INFO 004 ledger provider Initialized
+peer1.insurance.com      | 2019-09-24 07:25:48.979 UTC [ledgermgmt] initialize -> INFO 005 ledger mgmt initialized
+peer0.bank.com           | 2019-09-24 07:25:49.032 UTC [kvledger] NewProvider -> INFO 004 ledger provider Initialized
+peer1.insurance.com      | 2019-09-24 07:25:48.979 UTC [peer] func1 -> INFO 006 Auto-detected peer address: 172.18.0.5:8051
+peer1.insurance.com      | 2019-09-24 07:25:48.979 UTC [peer] func1 -> INFO 007 Returning peer1.insurance.com:8051
+peer1.insurance.com      | 2019-09-24 07:25:48.979 UTC [peer] func1 -> INFO 008 Auto-detected peer address: 172.18.0.5:8051
+peer1.insurance.com      | 2019-09-24 07:25:48.979 UTC [peer] func1 -> INFO 009 Returning peer1.insurance.com:8051
+peer1.insurance.com      | 2019-09-24 07:25:48.986 UTC [nodeCmd] serve -> INFO 00a Starting peer with TLS enabled
+peer1.insurance.com      | 2019-09-24 07:25:48.987 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00b Entering computeChaincodeEndpoint with peerHostname: peer1.insurance.com
+peer1.insurance.com      | 2019-09-24 07:25:48.987 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00c Exit with ccEndpoint: peer1.insurance.com:8052
+peer0.bank.com           | 2019-09-24 07:25:49.053 UTC [ledgermgmt] initialize -> INFO 005 ledger mgmt initialized
+peer0.bank.com           | 2019-09-24 07:25:49.053 UTC [peer] func1 -> INFO 006 Auto-detected peer address: 172.18.0.7:9051
+peer1.insurance.com      | 2019-09-24 07:25:48.989 UTC [sccapi] registerSysCC -> INFO 00d system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+peer1.insurance.com      | 2019-09-24 07:25:48.989 UTC [sccapi] registerSysCC -> INFO 00e system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+peer1.insurance.com      | 2019-09-24 07:25:48.989 UTC [sccapi] registerSysCC -> INFO 00f system chaincode qscc(github.com/hyperledger/fabric/core/scc/qscc) registered
+peer0.bank.com           | 2019-09-24 07:25:49.053 UTC [peer] func1 -> INFO 007 Returning peer0.bank.com:9051
+peer0.bank.com           | 2019-09-24 07:25:49.053 UTC [peer] func1 -> INFO 008 Auto-detected peer address: 172.18.0.7:9051
+peer1.insurance.com      | 2019-09-24 07:25:48.989 UTC [sccapi] registerSysCC -> INFO 010 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle,true) disabled
+peer1.insurance.com      | 2019-09-24 07:25:48.991 UTC [gossip.service] func1 -> INFO 011 Initialize gossip with endpoint peer1.insurance.com:8051 and bootstrap set [peer0.insurance.com:7051]
+peer1.insurance.com      | 2019-09-24 07:25:49.002 UTC [gossip.gossip] NewGossipService -> INFO 012 Creating gossip service with self membership of Endpoint: peer1.insurance.com:8051, InternalEndpoint: peer1.insurance.com:8051, PKI-ID: 058e9dffd6a2d8bb054ffce76e4fbaeee2b124e5a9d5bb10599a0244834dd381, Metadata: 
+peer1.insurance.com      | 2019-09-24 07:25:49.005 UTC [sccapi] deploySysCC -> INFO 013 system chaincode lscc/(github.com/hyperledger/fabric/core/scc/lscc) deployed
+peer0.bank.com           | 2019-09-24 07:25:49.053 UTC [peer] func1 -> INFO 009 Returning peer0.bank.com:9051
+peer1.insurance.com      | 2019-09-24 07:25:49.005 UTC [gossip.gossip] start -> INFO 014 Gossip instance peer1.insurance.com:8051 started
+peer1.insurance.com      | 2019-09-24 07:25:49.006 UTC [cscc] Init -> INFO 015 Init CSCC
+peer1.insurance.com      | 2019-09-24 07:25:49.006 UTC [sccapi] deploySysCC -> INFO 016 system chaincode cscc/(github.com/hyperledger/fabric/core/scc/cscc) deployed
+peer1.insurance.com      | 2019-09-24 07:25:49.007 UTC [qscc] Init -> INFO 017 Init QSCC
+peer0.bank.com           | 2019-09-24 07:25:49.056 UTC [nodeCmd] serve -> INFO 00a Starting peer with TLS enabled
+peer1.insurance.com      | 2019-09-24 07:25:49.007 UTC [sccapi] deploySysCC -> INFO 018 system chaincode qscc/(github.com/hyperledger/fabric/core/scc/qscc) deployed
+peer1.insurance.com      | 2019-09-24 07:25:49.007 UTC [sccapi] deploySysCC -> INFO 019 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+peer1.insurance.com      | 2019-09-24 07:25:49.007 UTC [nodeCmd] serve -> INFO 01a Deployed system chaincodes
+peer0.bank.com           | 2019-09-24 07:25:49.057 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00b Entering computeChaincodeEndpoint with peerHostname: peer0.bank.com
+peer0.bank.com           | 2019-09-24 07:25:49.057 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00c Exit with ccEndpoint: peer0.bank.com:9052
+peer1.insurance.com      | 2019-09-24 07:25:49.008 UTC [discovery] NewService -> INFO 01b Created with config TLS: true, authCacheMaxSize: 1000, authCachePurgeRatio: 0.750000
+peer1.insurance.com      | 2019-09-24 07:25:49.008 UTC [nodeCmd] registerDiscoveryService -> INFO 01c Discovery service activated
+peer1.insurance.com      | 2019-09-24 07:25:49.009 UTC [nodeCmd] serve -> INFO 01d Starting peer with ID=[name:"peer1.insurance.com" ], network ID=[dev], address=[peer1.insurance.com:8051]
+peer1.insurance.com      | 2019-09-24 07:25:49.009 UTC [nodeCmd] serve -> INFO 01e Started peer with ID=[name:"peer1.insurance.com" ], network ID=[dev], address=[peer1.insurance.com:8051]
+peer1.insurance.com      | 2019-09-24 07:25:49.009 UTC [nodeCmd] func8 -> INFO 01f Starting profiling server with listenAddress = 0.0.0.0:6060
+peer1.insurance.com      | 2019-09-24 07:25:49.836 UTC [comm.grpc.server] 1 -> INFO 020 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-09-24T07:25:51.836Z grpc.peer_address=172.18.0.6:60098 grpc.peer_subject="CN=peer0.insurance.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=56.688µs
+peer1.insurance.com      | 2019-09-24 07:25:49.843 UTC [comm.grpc.server] 1 -> INFO 021 streaming call completed grpc.service=gossip.Gossip grpc.method=GossipStream grpc.request_deadline=2019-09-24T07:25:59.841Z grpc.peer_address=172.18.0.6:60098 grpc.peer_subject="CN=peer0.insurance.com,L=San Francisco,ST=California,C=US" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=2.318743ms
+peer1.insurance.com      | 2019-09-24 07:25:49.849 UTC [comm.grpc.server] 1 -> INFO 022 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-09-24T07:25:51.849Z grpc.peer_address=172.18.0.6:60100 grpc.peer_subject="CN=peer0.insurance.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=125.566µs
+peer0.bank.com           | 2019-09-24 07:25:49.061 UTC [sccapi] registerSysCC -> INFO 00d system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+peer0.bank.com           | 2019-09-24 07:25:49.061 UTC [sccapi] registerSysCC -> INFO 00e system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+peer0.bank.com           | 2019-09-24 07:25:49.062 UTC [sccapi] registerSysCC -> INFO 00f system chaincode qscc(github.com/hyperledger/fabric/core/scc/qscc) registered
+peer0.bank.com           | 2019-09-24 07:25:49.062 UTC [sccapi] registerSysCC -> INFO 010 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle,true) disabled
+peer0.bank.com           | 2019-09-24 07:25:49.063 UTC [gossip.service] func1 -> INFO 011 Initialize gossip with endpoint peer0.bank.com:9051 and bootstrap set [peer1.bank.com:10051]
+peer0.bank.com           | 2019-09-24 07:25:49.067 UTC [gossip.gossip] NewGossipService -> INFO 012 Creating gossip service with self membership of Endpoint: peer0.bank.com:9051, InternalEndpoint: peer0.bank.com:9051, PKI-ID: d90da6d0875a1446290e38fe4f91c19b5c6222df26514446f8616d8926ff3448, Metadata: 
+peer0.bank.com           | 2019-09-24 07:25:49.067 UTC [gossip.gossip] start -> INFO 013 Gossip instance peer0.bank.com:9051 started
+peer0.bank.com           | 2019-09-24 07:25:49.068 UTC [sccapi] deploySysCC -> INFO 014 system chaincode lscc/(github.com/hyperledger/fabric/core/scc/lscc) deployed
+peer0.bank.com           | 2019-09-24 07:25:49.068 UTC [cscc] Init -> INFO 015 Init CSCC
+peer0.bank.com           | 2019-09-24 07:25:49.068 UTC [sccapi] deploySysCC -> INFO 016 system chaincode cscc/(github.com/hyperledger/fabric/core/scc/cscc) deployed
+peer0.bank.com           | 2019-09-24 07:25:49.073 UTC [qscc] Init -> INFO 017 Init QSCC
+peer0.bank.com           | 2019-09-24 07:25:49.073 UTC [sccapi] deploySysCC -> INFO 018 system chaincode qscc/(github.com/hyperledger/fabric/core/scc/qscc) deployed
+peer0.bank.com           | 2019-09-24 07:25:49.073 UTC [sccapi] deploySysCC -> INFO 019 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+peer0.bank.com           | 2019-09-24 07:25:49.073 UTC [nodeCmd] serve -> INFO 01a Deployed system chaincodes
+peer0.bank.com           | 2019-09-24 07:25:49.073 UTC [discovery] NewService -> INFO 01b Created with config TLS: true, authCacheMaxSize: 1000, authCachePurgeRatio: 0.750000
+peer0.bank.com           | 2019-09-24 07:25:49.073 UTC [nodeCmd] registerDiscoveryService -> INFO 01c Discovery service activated
+peer0.bank.com           | 2019-09-24 07:25:49.074 UTC [nodeCmd] serve -> INFO 01d Starting peer with ID=[name:"peer0.bank.com" ], network ID=[dev], address=[peer0.bank.com:9051]
+peer0.bank.com           | 2019-09-24 07:25:49.074 UTC [nodeCmd] serve -> INFO 01e Started peer with ID=[name:"peer0.bank.com" ], network ID=[dev], address=[peer0.bank.com:9051]
+peer0.bank.com           | 2019-09-24 07:25:49.074 UTC [nodeCmd] func8 -> INFO 01f Starting profiling server with listenAddress = 0.0.0.0:6060
+peer0.bank.com           | 2019-09-24 07:25:50.055 UTC [comm.grpc.server] 1 -> INFO 020 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-09-24T07:25:52.054Z grpc.peer_address=172.18.0.4:54934 grpc.peer_subject="CN=peer1.bank.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=148.479µs
+peer0.bank.com           | 2019-09-24 07:25:50.060 UTC [comm.grpc.server] 1 -> INFO 021 streaming call completed grpc.service=gossip.Gossip grpc.method=GossipStream grpc.request_deadline=2019-09-24T07:26:00.057Z grpc.peer_address=172.18.0.4:54934 grpc.peer_subject="CN=peer1.bank.com,L=San Francisco,ST=California,C=US" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=3.067088ms
+peer1.bank.com           | 2019-09-24 07:25:48.994 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+peer1.bank.com           |  Version: 1.4.1
+peer1.bank.com           |  Commit SHA: 87074a7
+peer1.bank.com           |  Go version: go1.11.5
+peer1.bank.com           |  OS/Arch: linux/amd64
+peer1.bank.com           |  Chaincode:
+peer1.bank.com           |   Base Image Version: 0.4.15
+peer1.bank.com           |   Base Docker Namespace: hyperledger
+peer1.bank.com           |   Base Docker Label: org.hyperledger.fabric
+peer1.bank.com           |   Docker Namespace: hyperledger
+peer1.bank.com           | 2019-09-24 07:25:48.995 UTC [ledgermgmt] initialize -> INFO 002 Initializing ledger mgmt
+peer1.bank.com           | 2019-09-24 07:25:48.995 UTC [kvledger] NewProvider -> INFO 003 Initializing ledger provider
+peer1.bank.com           | 2019-09-24 07:25:49.025 UTC [kvledger] NewProvider -> INFO 004 ledger provider Initialized
+peer1.bank.com           | 2019-09-24 07:25:49.034 UTC [ledgermgmt] initialize -> INFO 005 ledger mgmt initialized
+peer1.bank.com           | 2019-09-24 07:25:49.034 UTC [peer] func1 -> INFO 006 Auto-detected peer address: 172.18.0.4:10051
+peer1.bank.com           | 2019-09-24 07:25:49.034 UTC [peer] func1 -> INFO 007 Returning peer1.bank.com:10051
+peer1.bank.com           | 2019-09-24 07:25:49.034 UTC [peer] func1 -> INFO 008 Auto-detected peer address: 172.18.0.4:10051
+peer1.bank.com           | 2019-09-24 07:25:49.035 UTC [peer] func1 -> INFO 009 Returning peer1.bank.com:10051
+peer1.bank.com           | 2019-09-24 07:25:49.036 UTC [nodeCmd] serve -> INFO 00a Starting peer with TLS enabled
+peer1.bank.com           | 2019-09-24 07:25:49.037 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00b Entering computeChaincodeEndpoint with peerHostname: peer1.bank.com
+peer1.bank.com           | 2019-09-24 07:25:49.037 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00c Exit with ccEndpoint: peer1.bank.com:10052
+peer1.bank.com           | 2019-09-24 07:25:49.038 UTC [sccapi] registerSysCC -> INFO 00d system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+peer1.bank.com           | 2019-09-24 07:25:49.038 UTC [sccapi] registerSysCC -> INFO 00e system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+peer1.bank.com           | 2019-09-24 07:25:49.039 UTC [sccapi] registerSysCC -> INFO 00f system chaincode qscc(github.com/hyperledger/fabric/core/scc/qscc) registered
+peer1.bank.com           | 2019-09-24 07:25:49.039 UTC [sccapi] registerSysCC -> INFO 010 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle,true) disabled
+peer1.bank.com           | 2019-09-24 07:25:49.042 UTC [gossip.service] func1 -> INFO 011 Initialize gossip with endpoint peer1.bank.com:10051 and bootstrap set [peer0.bank.com:9051]
+peer1.bank.com           | 2019-09-24 07:25:49.046 UTC [gossip.gossip] NewGossipService -> INFO 012 Creating gossip service with self membership of Endpoint: peer1.bank.com:10051, InternalEndpoint: peer1.bank.com:10051, PKI-ID: a943ab8335468acec4d66118a2737278efc123325c56baf9545af823803e1f6a, Metadata: 
+peer1.bank.com           | 2019-09-24 07:25:49.047 UTC [gossip.gossip] start -> INFO 013 Gossip instance peer1.bank.com:10051 started
+peer1.bank.com           | 2019-09-24 07:25:49.047 UTC [sccapi] deploySysCC -> INFO 014 system chaincode lscc/(github.com/hyperledger/fabric/core/scc/lscc) deployed
+peer1.bank.com           | 2019-09-24 07:25:49.048 UTC [cscc] Init -> INFO 015 Init CSCC
+peer1.bank.com           | 2019-09-24 07:25:49.048 UTC [sccapi] deploySysCC -> INFO 016 system chaincode cscc/(github.com/hyperledger/fabric/core/scc/cscc) deployed
+peer1.bank.com           | 2019-09-24 07:25:49.049 UTC [qscc] Init -> INFO 017 Init QSCC
+peer1.bank.com           | 2019-09-24 07:25:49.049 UTC [sccapi] deploySysCC -> INFO 018 system chaincode qscc/(github.com/hyperledger/fabric/core/scc/qscc) deployed
+peer1.bank.com           | 2019-09-24 07:25:49.049 UTC [sccapi] deploySysCC -> INFO 019 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+peer1.bank.com           | 2019-09-24 07:25:49.049 UTC [nodeCmd] serve -> INFO 01a Deployed system chaincodes
+peer1.bank.com           | 2019-09-24 07:25:49.050 UTC [discovery] NewService -> INFO 01b Created with config TLS: true, authCacheMaxSize: 1000, authCachePurgeRatio: 0.750000
+peer1.bank.com           | 2019-09-24 07:25:49.050 UTC [nodeCmd] registerDiscoveryService -> INFO 01c Discovery service activated
+peer1.bank.com           | 2019-09-24 07:25:49.050 UTC [nodeCmd] serve -> INFO 01d Starting peer with ID=[name:"peer1.bank.com" ], network ID=[dev], address=[peer1.bank.com:10051]
+peer1.bank.com           | 2019-09-24 07:25:49.050 UTC [nodeCmd] serve -> INFO 01e Started peer with ID=[name:"peer1.bank.com" ], network ID=[dev], address=[peer1.bank.com:10051]
+peer1.bank.com           | 2019-09-24 07:25:49.050 UTC [nodeCmd] func8 -> INFO 01f Starting profiling server with listenAddress = 0.0.0.0:6060
+peer1.bank.com           | 2019-09-24 07:25:49.072 UTC [comm.grpc.server] 1 -> INFO 020 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-09-24T07:25:51.071Z grpc.peer_address=172.18.0.7:46380 grpc.peer_subject="CN=peer0.bank.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=59.945µs
+peer1.bank.com           | 2019-09-24 07:25:49.076 UTC [comm.grpc.server] 1 -> INFO 021 streaming call completed grpc.service=gossip.Gossip grpc.method=GossipStream grpc.request_deadline=2019-09-24T07:25:59.073Z grpc.peer_address=172.18.0.7:46380 grpc.peer_subject="CN=peer0.bank.com,L=San Francisco,ST=California,C=US" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=3.043528ms
+peer1.bank.com           | 2019-09-24 07:25:49.079 UTC [comm.grpc.server] 1 -> INFO 022 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-09-24T07:25:51.079Z grpc.peer_address=172.18.0.7:46382 grpc.peer_subject="CN=peer0.bank.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=89.091µs
+peer1.bank.com           | 2019-09-24 07:25:50.060 UTC [comm.grpc.server] 1 -> INFO 023 streaming call completed grpc.service=gossip.Gossip grpc.method=GossipStream grpc.peer_address=172.18.0.7:46382 grpc.peer_subject="CN=peer0.bank.com,L=San Francisco,ST=California,C=US" error=EOF grpc.code=Unknown grpc.call_duration=981.28512ms
+peer0.insurance.com      | 2019-09-24 07:25:49.757 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+peer0.insurance.com      |  Version: 1.4.1
+peer0.insurance.com      |  Commit SHA: 87074a7
+peer0.insurance.com      |  Go version: go1.11.5
+peer0.insurance.com      |  OS/Arch: linux/amd64
+peer0.insurance.com      |  Chaincode:
+peer0.insurance.com      |   Base Image Version: 0.4.15
+peer0.insurance.com      |   Base Docker Namespace: hyperledger
+peer0.insurance.com      |   Base Docker Label: org.hyperledger.fabric
+peer0.insurance.com      |   Docker Namespace: hyperledger
+peer0.hospital.com       | 2019-09-24 07:25:49.813 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+peer0.hospital.com       |  Version: 1.4.1
+peer0.hospital.com       |  Commit SHA: 87074a7
+peer0.hospital.com       |  Go version: go1.11.5
+peer0.hospital.com       |  OS/Arch: linux/amd64
+peer0.hospital.com       |  Chaincode:
+peer0.hospital.com       |   Base Image Version: 0.4.15
+peer0.hospital.com       |   Base Docker Namespace: hyperledger
+peer0.hospital.com       |   Base Docker Label: org.hyperledger.fabric
+peer0.hospital.com       |   Docker Namespace: hyperledger
+peer0.hospital.com       | 2019-09-24 07:25:49.815 UTC [ledgermgmt] initialize -> INFO 002 Initializing ledger mgmt
+peer0.hospital.com       | 2019-09-24 07:25:49.815 UTC [kvledger] NewProvider -> INFO 003 Initializing ledger provider
+peer0.hospital.com       | 2019-09-24 07:25:49.829 UTC [kvledger] NewProvider -> INFO 004 ledger provider Initialized
+peer0.hospital.com       | 2019-09-24 07:25:49.848 UTC [ledgermgmt] initialize -> INFO 005 ledger mgmt initialized
+peer0.hospital.com       | 2019-09-24 07:25:49.848 UTC [peer] func1 -> INFO 006 Auto-detected peer address: 172.18.0.8:11051
+peer0.hospital.com       | 2019-09-24 07:25:49.848 UTC [peer] func1 -> INFO 007 Returning peer0.hospital.com:11051
+peer0.hospital.com       | 2019-09-24 07:25:49.848 UTC [peer] func1 -> INFO 008 Auto-detected peer address: 172.18.0.8:11051
+peer0.hospital.com       | 2019-09-24 07:25:49.848 UTC [peer] func1 -> INFO 009 Returning peer0.hospital.com:11051
+peer0.hospital.com       | 2019-09-24 07:25:49.851 UTC [nodeCmd] serve -> INFO 00a Starting peer with TLS enabled
+peer0.insurance.com      | 2019-09-24 07:25:49.758 UTC [ledgermgmt] initialize -> INFO 002 Initializing ledger mgmt
+peer0.insurance.com      | 2019-09-24 07:25:49.758 UTC [kvledger] NewProvider -> INFO 003 Initializing ledger provider
+peer0.insurance.com      | 2019-09-24 07:25:49.786 UTC [kvledger] NewProvider -> INFO 004 ledger provider Initialized
+peer0.insurance.com      | 2019-09-24 07:25:49.806 UTC [ledgermgmt] initialize -> INFO 005 ledger mgmt initialized
+peer0.insurance.com      | 2019-09-24 07:25:49.806 UTC [peer] func1 -> INFO 006 Auto-detected peer address: 172.18.0.6:7051
+peer0.insurance.com      | 2019-09-24 07:25:49.806 UTC [peer] func1 -> INFO 007 Returning peer0.insurance.com:7051
+peer0.insurance.com      | 2019-09-24 07:25:49.806 UTC [peer] func1 -> INFO 008 Auto-detected peer address: 172.18.0.6:7051
+peer0.insurance.com      | 2019-09-24 07:25:49.807 UTC [peer] func1 -> INFO 009 Returning peer0.insurance.com:7051
+peer0.insurance.com      | 2019-09-24 07:25:49.809 UTC [nodeCmd] serve -> INFO 00a Starting peer with TLS enabled
+peer0.insurance.com      | 2019-09-24 07:25:49.810 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00b Entering computeChaincodeEndpoint with peerHostname: peer0.insurance.com
+peer0.insurance.com      | 2019-09-24 07:25:49.810 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00c Exit with ccEndpoint: peer0.insurance.com:7052
+peer0.insurance.com      | 2019-09-24 07:25:49.812 UTC [sccapi] registerSysCC -> INFO 00d system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+peer0.insurance.com      | 2019-09-24 07:25:49.812 UTC [sccapi] registerSysCC -> INFO 00e system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+peer0.insurance.com      | 2019-09-24 07:25:49.813 UTC [sccapi] registerSysCC -> INFO 00f system chaincode qscc(github.com/hyperledger/fabric/core/scc/qscc) registered
+peer0.insurance.com      | 2019-09-24 07:25:49.814 UTC [sccapi] registerSysCC -> INFO 010 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle,true) disabled
+peer0.insurance.com      | 2019-09-24 07:25:49.817 UTC [gossip.service] func1 -> INFO 011 Initialize gossip with endpoint peer0.insurance.com:7051 and bootstrap set [peer1.insurance.com:8051]
+peer0.insurance.com      | 2019-09-24 07:25:49.826 UTC [gossip.gossip] NewGossipService -> INFO 012 Creating gossip service with self membership of Endpoint: peer0.insurance.com:7051, InternalEndpoint: peer0.insurance.com:7051, PKI-ID: 787967ff72d4a4d425b2a8001fc301d07ffa6b753087b7f4c527ba8cb66f040b, Metadata: 
+peer0.insurance.com      | 2019-09-24 07:25:49.828 UTC [gossip.gossip] start -> INFO 013 Gossip instance peer0.insurance.com:7051 started
+peer0.insurance.com      | 2019-09-24 07:25:49.830 UTC [sccapi] deploySysCC -> INFO 014 system chaincode lscc/(github.com/hyperledger/fabric/core/scc/lscc) deployed
+peer0.insurance.com      | 2019-09-24 07:25:49.834 UTC [cscc] Init -> INFO 015 Init CSCC
+peer0.insurance.com      | 2019-09-24 07:25:49.834 UTC [sccapi] deploySysCC -> INFO 016 system chaincode cscc/(github.com/hyperledger/fabric/core/scc/cscc) deployed
+peer0.insurance.com      | 2019-09-24 07:25:49.836 UTC [qscc] Init -> INFO 017 Init QSCC
+peer0.insurance.com      | 2019-09-24 07:25:49.836 UTC [sccapi] deploySysCC -> INFO 018 system chaincode qscc/(github.com/hyperledger/fabric/core/scc/qscc) deployed
+peer0.hospital.com       | 2019-09-24 07:25:49.853 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00b Entering computeChaincodeEndpoint with peerHostname: peer0.hospital.com
+peer0.hospital.com       | 2019-09-24 07:25:49.853 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00c Exit with ccEndpoint: peer0.hospital.com:11052
+peer0.hospital.com       | 2019-09-24 07:25:49.854 UTC [sccapi] registerSysCC -> INFO 00d system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+peer0.hospital.com       | 2019-09-24 07:25:49.854 UTC [sccapi] registerSysCC -> INFO 00e system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+peer0.hospital.com       | 2019-09-24 07:25:49.854 UTC [sccapi] registerSysCC -> INFO 00f system chaincode qscc(github.com/hyperledger/fabric/core/scc/qscc) registered
+peer0.hospital.com       | 2019-09-24 07:25:49.854 UTC [sccapi] registerSysCC -> INFO 010 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle,true) disabled
+peer0.hospital.com       | 2019-09-24 07:25:49.858 UTC [gossip.service] func1 -> INFO 011 Initialize gossip with endpoint peer0.hospital.com:11051 and bootstrap set [peer1.hospital.com:12051]
+peer0.insurance.com      | 2019-09-24 07:25:49.837 UTC [sccapi] deploySysCC -> INFO 019 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+peer0.insurance.com      | 2019-09-24 07:25:49.837 UTC [nodeCmd] serve -> INFO 01a Deployed system chaincodes
+peer0.insurance.com      | 2019-09-24 07:25:49.838 UTC [discovery] NewService -> INFO 01b Created with config TLS: true, authCacheMaxSize: 1000, authCachePurgeRatio: 0.750000
+peer0.insurance.com      | 2019-09-24 07:25:49.838 UTC [nodeCmd] registerDiscoveryService -> INFO 01c Discovery service activated
+peer0.insurance.com      | 2019-09-24 07:25:49.839 UTC [nodeCmd] serve -> INFO 01d Starting peer with ID=[name:"peer0.insurance.com" ], network ID=[dev], address=[peer0.insurance.com:7051]
+peer0.insurance.com      | 2019-09-24 07:25:49.839 UTC [nodeCmd] serve -> INFO 01e Started peer with ID=[name:"peer0.insurance.com" ], network ID=[dev], address=[peer0.insurance.com:7051]
+peer0.insurance.com      | 2019-09-24 07:25:49.840 UTC [nodeCmd] func8 -> INFO 01f Starting profiling server with listenAddress = 0.0.0.0:6060
+peer0.hospital.com       | 2019-09-24 07:25:49.864 UTC [gossip.gossip] NewGossipService -> INFO 012 Creating gossip service with self membership of Endpoint: peer0.hospital.com:11051, InternalEndpoint: peer0.hospital.com:11051, PKI-ID: 04d8a55c509c187860f2af31d8cca8930eb1b7ede242415479526f927796accc, Metadata: 
+peer0.hospital.com       | 2019-09-24 07:25:49.865 UTC [gossip.gossip] start -> INFO 013 Gossip instance peer0.hospital.com:11051 started
+peer0.hospital.com       | 2019-09-24 07:25:49.867 UTC [sccapi] deploySysCC -> INFO 014 system chaincode lscc/(github.com/hyperledger/fabric/core/scc/lscc) deployed
+peer0.hospital.com       | 2019-09-24 07:25:49.867 UTC [cscc] Init -> INFO 015 Init CSCC
+peer0.hospital.com       | 2019-09-24 07:25:49.867 UTC [sccapi] deploySysCC -> INFO 016 system chaincode cscc/(github.com/hyperledger/fabric/core/scc/cscc) deployed
+peer0.hospital.com       | 2019-09-24 07:25:49.868 UTC [qscc] Init -> INFO 017 Init QSCC
+peer0.hospital.com       | 2019-09-24 07:25:49.868 UTC [sccapi] deploySysCC -> INFO 018 system chaincode qscc/(github.com/hyperledger/fabric/core/scc/qscc) deployed
+peer0.hospital.com       | 2019-09-24 07:25:49.868 UTC [sccapi] deploySysCC -> INFO 019 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+peer0.hospital.com       | 2019-09-24 07:25:49.868 UTC [nodeCmd] serve -> INFO 01a Deployed system chaincodes
+peer0.insurance.com      | 2019-09-24 07:25:49.844 UTC [comm.grpc.server] 1 -> INFO 020 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-09-24T07:25:51.843Z grpc.peer_address=172.18.0.5:43294 grpc.peer_subject="CN=peer1.insurance.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=51.167µs
+peer0.insurance.com      | 2019-09-24 07:25:49.852 UTC [comm.grpc.server] 1 -> INFO 021 streaming call completed grpc.service=gossip.Gossip grpc.method=GossipStream grpc.request_deadline=2019-09-24T07:25:59.845Z grpc.peer_address=172.18.0.5:43294 grpc.peer_subject="CN=peer1.insurance.com,L=San Francisco,ST=California,C=US" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=6.801773ms
+peer0.hospital.com       | 2019-09-24 07:25:49.869 UTC [discovery] NewService -> INFO 01b Created with config TLS: true, authCacheMaxSize: 1000, authCachePurgeRatio: 0.750000
+peer0.hospital.com       | 2019-09-24 07:25:49.869 UTC [nodeCmd] registerDiscoveryService -> INFO 01c Discovery service activated
+peer0.insurance.com      | 2019-09-24 07:25:49.855 UTC [comm.grpc.server] 1 -> INFO 022 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-09-24T07:25:51.854Z grpc.peer_address=172.18.0.5:43306 grpc.peer_subject="CN=peer1.insurance.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=57.523µs
+peer0.hospital.com       | 2019-09-24 07:25:49.869 UTC [nodeCmd] serve -> INFO 01d Starting peer with ID=[name:"peer0.hospital.com" ], network ID=[dev], address=[peer0.hospital.com:11051]
+peer0.hospital.com       | 2019-09-24 07:25:49.869 UTC [nodeCmd] serve -> INFO 01e Started peer with ID=[name:"peer0.hospital.com" ], network ID=[dev], address=[peer0.hospital.com:11051]
+peer0.hospital.com       | 2019-09-24 07:25:49.869 UTC [nodeCmd] func8 -> INFO 01f Starting profiling server with listenAddress = 0.0.0.0:6060
+peer0.hospital.com       | 2019-09-24 07:25:51.122 UTC [comm.grpc.server] 1 -> INFO 020 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-09-24T07:25:53.122Z grpc.peer_address=172.18.0.2:55422 grpc.peer_subject="CN=peer1.hospital.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=74.705µs
+peer0.hospital.com       | 2019-09-24 07:25:51.128 UTC [comm.grpc.server] 1 -> INFO 021 streaming call completed grpc.service=gossip.Gossip grpc.method=GossipStream grpc.request_deadline=2019-09-24T07:26:01.123Z grpc.peer_address=172.18.0.2:55422 grpc.peer_subject="CN=peer1.hospital.com,L=San Francisco,ST=California,C=US" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=4.836614ms
+peer0.hospital.com       | 2019-09-24 07:25:51.136 UTC [comm.grpc.server] 1 -> INFO 022 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-09-24T07:25:53.136Z grpc.peer_address=172.18.0.2:55424 grpc.peer_subject="CN=peer1.hospital.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=72.629µs
+orderer.insurance.com    | 2019-09-24 07:25:50.858 UTC [localconfig] completeInitialization -> INFO 001 Kafka.Version unset, setting to 0.10.2.0
+orderer.insurance.com    | 2019-09-24 07:25:50.870 UTC [orderer.common.server] prettyPrintStruct -> INFO 002 Orderer config values:
+orderer.insurance.com    | 	General.LedgerType = "file"
+orderer.insurance.com    | 	General.ListenAddress = "0.0.0.0"
+orderer.insurance.com    | 	General.ListenPort = 7050
+orderer.insurance.com    | 	General.TLS.Enabled = true
+orderer.insurance.com    | 	General.TLS.PrivateKey = "/var/hyperledger/orderer/tls/server.key"
+orderer.insurance.com    | 	General.TLS.Certificate = "/var/hyperledger/orderer/tls/server.crt"
+orderer.insurance.com    | 	General.TLS.RootCAs = [/var/hyperledger/orderer/tls/ca.crt]
+orderer.insurance.com    | 	General.TLS.ClientAuthRequired = false
+orderer.insurance.com    | 	General.TLS.ClientRootCAs = []
+orderer.insurance.com    | 	General.Cluster.ListenAddress = ""
+orderer.insurance.com    | 	General.Cluster.ListenPort = 0
+orderer.insurance.com    | 	General.Cluster.ServerCertificate = ""
+orderer.insurance.com    | 	General.Cluster.ServerPrivateKey = ""
+orderer.insurance.com    | 	General.Cluster.ClientCertificate = "/var/hyperledger/orderer/tls/server.crt"
+orderer.insurance.com    | 	General.Cluster.ClientPrivateKey = "/var/hyperledger/orderer/tls/server.key"
+orderer.insurance.com    | 	General.Cluster.RootCAs = [/var/hyperledger/orderer/tls/ca.crt]
+orderer.insurance.com    | 	General.Cluster.DialTimeout = 5s
+orderer.insurance.com    | 	General.Cluster.RPCTimeout = 7s
+orderer.insurance.com    | 	General.Cluster.ReplicationBufferSize = 20971520
+orderer.insurance.com    | 	General.Cluster.ReplicationPullTimeout = 5s
+orderer.insurance.com    | 	General.Cluster.ReplicationRetryTimeout = 5s
+orderer.insurance.com    | 	General.Cluster.ReplicationBackgroundRefreshInterval = 5m0s
+orderer.insurance.com    | 	General.Cluster.ReplicationMaxRetries = 12
+orderer.insurance.com    | 	General.Cluster.SendBufferSize = 10
+orderer.insurance.com    | 	General.Cluster.CertExpirationWarningThreshold = 168h0m0s
+orderer.insurance.com    | 	General.Keepalive.ServerMinInterval = 1m0s
+orderer.insurance.com    | 	General.Keepalive.ServerInterval = 2h0m0s
+orderer.insurance.com    | 	General.Keepalive.ServerTimeout = 20s
+orderer.insurance.com    | 	General.GenesisMethod = "file"
+orderer.insurance.com    | 	General.GenesisProfile = "SampleInsecureSolo"
+orderer.insurance.com    | 	General.SystemChannel = "test-system-channel-name"
+orderer.insurance.com    | 	General.GenesisFile = "/var/hyperledger/orderer/orderer.genesis.block"
+orderer.insurance.com    | 	General.Profile.Enabled = false
+orderer.insurance.com    | 	General.Profile.Address = "0.0.0.0:6060"
+orderer.insurance.com    | 	General.LocalMSPDir = "/var/hyperledger/orderer/msp"
+orderer.insurance.com    | 	General.LocalMSPID = "OrdererMSP"
+orderer.insurance.com    | 	General.BCCSP.ProviderName = "SW"
+orderer.insurance.com    | 	General.BCCSP.SwOpts.SecLevel = 256
+orderer.insurance.com    | 	General.BCCSP.SwOpts.HashFamily = "SHA2"
+orderer.insurance.com    | 	General.BCCSP.SwOpts.Ephemeral = false
+orderer.insurance.com    | 	General.BCCSP.SwOpts.FileKeystore.KeyStorePath = "/var/hyperledger/orderer/msp/keystore"
+orderer.insurance.com    | 	General.BCCSP.SwOpts.DummyKeystore =
+orderer.insurance.com    | 	General.BCCSP.SwOpts.InmemKeystore =
+orderer.insurance.com    | 	General.BCCSP.PluginOpts =
+orderer.insurance.com    | 	General.Authentication.TimeWindow = 15m0s
+orderer.insurance.com    | 	FileLedger.Location = "/var/hyperledger/production/orderer"
+orderer.insurance.com    | 	FileLedger.Prefix = "hyperledger-fabric-ordererledger"
+orderer.insurance.com    | 	RAMLedger.HistorySize = 1000
+orderer.insurance.com    | 	Kafka.Retry.ShortInterval = 5s
+orderer.insurance.com    | 	Kafka.Retry.ShortTotal = 10m0s
+orderer.insurance.com    | 	Kafka.Retry.LongInterval = 5m0s
+orderer.insurance.com    | 	Kafka.Retry.LongTotal = 12h0m0s
+orderer.insurance.com    | 	Kafka.Retry.NetworkTimeouts.DialTimeout = 10s
+orderer.insurance.com    | 	Kafka.Retry.NetworkTimeouts.ReadTimeout = 10s
+orderer.insurance.com    | 	Kafka.Retry.NetworkTimeouts.WriteTimeout = 10s
+orderer.insurance.com    | 	Kafka.Retry.Metadata.RetryMax = 3
+orderer.insurance.com    | 	Kafka.Retry.Metadata.RetryBackoff = 250ms
+orderer.insurance.com    | 	Kafka.Retry.Producer.RetryMax = 3
+orderer.insurance.com    | 	Kafka.Retry.Producer.RetryBackoff = 100ms
+orderer.insurance.com    | 	Kafka.Retry.Consumer.RetryBackoff = 2s
+orderer.insurance.com    | 	Kafka.Verbose = true
+orderer.insurance.com    | 	Kafka.Version = 0.10.2.0
+orderer.insurance.com    | 	Kafka.TLS.Enabled = false
+orderer.insurance.com    | 	Kafka.TLS.PrivateKey = ""
+orderer.insurance.com    | 	Kafka.TLS.Certificate = ""
+orderer.insurance.com    | 	Kafka.TLS.RootCAs = []
+orderer.insurance.com    | 	Kafka.TLS.ClientAuthRequired = false
+orderer.insurance.com    | 	Kafka.TLS.ClientRootCAs = []
+orderer.insurance.com    | 	Kafka.SASLPlain.Enabled = false
+orderer.insurance.com    | 	Kafka.SASLPlain.User = ""
+orderer.insurance.com    | 	Kafka.SASLPlain.Password = ""
+orderer.insurance.com    | 	Kafka.Topic.ReplicationFactor = 1
+orderer.insurance.com    | 	Debug.BroadcastTraceDir = ""
+orderer.insurance.com    | 	Debug.DeliverTraceDir = ""
+orderer.insurance.com    | 	Consensus = map[WALDir:/var/hyperledger/production/orderer/etcdraft/wal SnapDir:/var/hyperledger/production/orderer/etcdraft/snapshot]
+orderer.insurance.com    | 	Operations.ListenAddress = "127.0.0.1:8443"
+orderer.insurance.com    | 	Operations.TLS.Enabled = false
+orderer.insurance.com    | 	Operations.TLS.PrivateKey = ""
+orderer.insurance.com    | 	Operations.TLS.Certificate = ""
+orderer.insurance.com    | 	Operations.TLS.RootCAs = []
+orderer.insurance.com    | 	Operations.TLS.ClientAuthRequired = false
+orderer.insurance.com    | 	Operations.TLS.ClientRootCAs = []
+orderer.insurance.com    | 	Metrics.Provider = "disabled"
+orderer.insurance.com    | 	Metrics.Statsd.Network = "udp"
+orderer.insurance.com    | 	Metrics.Statsd.Address = "127.0.0.1:8125"
+orderer.insurance.com    | 	Metrics.Statsd.WriteInterval = 30s
+orderer.insurance.com    | 	Metrics.Statsd.Prefix = ""
+orderer.insurance.com    | 2019-09-24 07:25:50.971 UTC [orderer.common.server] initializeServerConfig -> INFO 003 Starting orderer with TLS enabled
+orderer.insurance.com    | 2019-09-24 07:25:50.976 UTC [fsblkstorage] newBlockfileMgr -> INFO 004 Getting block information from block storage
+orderer.insurance.com    | 2019-09-24 07:25:51.023 UTC [orderer.commmon.multichannel] Initialize -> INFO 005 Starting system channel 'medicalinsurance-sys-channel' with genesis block hash bcd1d13b03bff278d9f141840ed6964873fc16ae6318dc38e72c8788a77db233 and orderer type solo
+orderer.insurance.com    | 2019-09-24 07:25:51.024 UTC [orderer.common.server] Start -> INFO 006 Starting orderer:
+orderer.insurance.com    |  Version: 1.4.1
+orderer.insurance.com    |  Commit SHA: 87074a7
+orderer.insurance.com    |  Go version: go1.11.5
+orderer.insurance.com    |  OS/Arch: linux/amd64
+orderer.insurance.com    | 2019-09-24 07:25:51.024 UTC [orderer.common.server] Start -> INFO 007 Beginning to serve requests
+peer1.hospital.com       | 2019-09-24 07:25:50.973 UTC [nodeCmd] serve -> INFO 001 Starting peer:
+peer1.hospital.com       |  Version: 1.4.1
+peer1.hospital.com       |  Commit SHA: 87074a7
+peer1.hospital.com       |  Go version: go1.11.5
+peer1.hospital.com       |  OS/Arch: linux/amd64
+peer1.hospital.com       |  Chaincode:
+peer1.hospital.com       |   Base Image Version: 0.4.15
+peer1.hospital.com       |   Base Docker Namespace: hyperledger
+peer1.hospital.com       |   Base Docker Label: org.hyperledger.fabric
+peer1.hospital.com       |   Docker Namespace: hyperledger
+peer1.hospital.com       | 2019-09-24 07:25:50.978 UTC [ledgermgmt] initialize -> INFO 002 Initializing ledger mgmt
+peer1.hospital.com       | 2019-09-24 07:25:50.978 UTC [kvledger] NewProvider -> INFO 003 Initializing ledger provider
+peer1.hospital.com       | 2019-09-24 07:25:51.046 UTC [kvledger] NewProvider -> INFO 004 ledger provider Initialized
+peer1.hospital.com       | 2019-09-24 07:25:51.061 UTC [ledgermgmt] initialize -> INFO 005 ledger mgmt initialized
+peer1.hospital.com       | 2019-09-24 07:25:51.062 UTC [peer] func1 -> INFO 006 Auto-detected peer address: 172.18.0.2:12051
+peer1.hospital.com       | 2019-09-24 07:25:51.063 UTC [peer] func1 -> INFO 007 Returning peer1.hospital.com:12051
+peer1.hospital.com       | 2019-09-24 07:25:51.063 UTC [peer] func1 -> INFO 008 Auto-detected peer address: 172.18.0.2:12051
+peer1.hospital.com       | 2019-09-24 07:25:51.063 UTC [peer] func1 -> INFO 009 Returning peer1.hospital.com:12051
+peer1.hospital.com       | 2019-09-24 07:25:51.072 UTC [nodeCmd] serve -> INFO 00a Starting peer with TLS enabled
+peer1.hospital.com       | 2019-09-24 07:25:51.088 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00b Entering computeChaincodeEndpoint with peerHostname: peer1.hospital.com
+peer1.hospital.com       | 2019-09-24 07:25:51.088 UTC [nodeCmd] computeChaincodeEndpoint -> INFO 00c Exit with ccEndpoint: peer1.hospital.com:12052
+peer1.hospital.com       | 2019-09-24 07:25:51.090 UTC [sccapi] registerSysCC -> INFO 00d system chaincode lscc(github.com/hyperledger/fabric/core/scc/lscc) registered
+peer1.hospital.com       | 2019-09-24 07:25:51.090 UTC [sccapi] registerSysCC -> INFO 00e system chaincode cscc(github.com/hyperledger/fabric/core/scc/cscc) registered
+peer1.hospital.com       | 2019-09-24 07:25:51.090 UTC [sccapi] registerSysCC -> INFO 00f system chaincode qscc(github.com/hyperledger/fabric/core/scc/qscc) registered
+peer1.hospital.com       | 2019-09-24 07:25:51.090 UTC [sccapi] registerSysCC -> INFO 010 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle,true) disabled
+peer1.hospital.com       | 2019-09-24 07:25:51.092 UTC [gossip.service] func1 -> INFO 011 Initialize gossip with endpoint peer1.hospital.com:12051 and bootstrap set [peer0.hospital.com:11051]
+peer1.hospital.com       | 2019-09-24 07:25:51.098 UTC [gossip.gossip] NewGossipService -> INFO 012 Creating gossip service with self membership of Endpoint: peer1.hospital.com:12051, InternalEndpoint: peer1.hospital.com:12051, PKI-ID: 45b018704f25558de334dcbfee2f2aded21d83458f235fb3ce956a2f4199cd7e, Metadata: 
+peer1.hospital.com       | 2019-09-24 07:25:51.100 UTC [gossip.gossip] start -> INFO 013 Gossip instance peer1.hospital.com:12051 started
+peer1.hospital.com       | 2019-09-24 07:25:51.102 UTC [sccapi] deploySysCC -> INFO 014 system chaincode lscc/(github.com/hyperledger/fabric/core/scc/lscc) deployed
+peer1.hospital.com       | 2019-09-24 07:25:51.103 UTC [cscc] Init -> INFO 015 Init CSCC
+peer1.hospital.com       | 2019-09-24 07:25:51.103 UTC [sccapi] deploySysCC -> INFO 016 system chaincode cscc/(github.com/hyperledger/fabric/core/scc/cscc) deployed
+peer1.hospital.com       | 2019-09-24 07:25:51.103 UTC [qscc] Init -> INFO 017 Init QSCC
+peer1.hospital.com       | 2019-09-24 07:25:51.103 UTC [sccapi] deploySysCC -> INFO 018 system chaincode qscc/(github.com/hyperledger/fabric/core/scc/qscc) deployed
+peer1.hospital.com       | 2019-09-24 07:25:51.103 UTC [sccapi] deploySysCC -> INFO 019 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+peer1.hospital.com       | 2019-09-24 07:25:51.103 UTC [nodeCmd] serve -> INFO 01a Deployed system chaincodes
+peer1.hospital.com       | 2019-09-24 07:25:51.104 UTC [discovery] NewService -> INFO 01b Created with config TLS: true, authCacheMaxSize: 1000, authCachePurgeRatio: 0.750000
+peer1.hospital.com       | 2019-09-24 07:25:51.104 UTC [nodeCmd] registerDiscoveryService -> INFO 01c Discovery service activated
+peer1.hospital.com       | 2019-09-24 07:25:51.104 UTC [nodeCmd] serve -> INFO 01d Starting peer with ID=[name:"peer1.hospital.com" ], network ID=[dev], address=[peer1.hospital.com:12051]
+peer1.hospital.com       | 2019-09-24 07:25:51.111 UTC [nodeCmd] serve -> INFO 01e Started peer with ID=[name:"peer1.hospital.com" ], network ID=[dev], address=[peer1.hospital.com:12051]
+peer1.hospital.com       | 2019-09-24 07:25:51.112 UTC [nodeCmd] func8 -> INFO 01f Starting profiling server with listenAddress = 0.0.0.0:6060
+peer1.insurance.com      | 2019-09-24 07:25:51.857 UTC [gossip.comm] authenticateRemotePeer -> WARN 023 Failed reading messge from 172.18.0.6:60100, reason: timed out waiting for connection message from 172.18.0.6:60100
+peer1.insurance.com      | 2019-09-24 07:25:51.857 UTC [gossip.comm] GossipStream -> ERRO 024 Authentication failed: timed out waiting for connection message from 172.18.0.6:60100
+peer1.insurance.com      | 2019-09-24 07:25:51.857 UTC [comm.grpc.server] 1 -> INFO 025 streaming call completed grpc.service=gossip.Gossip grpc.method=GossipStream grpc.peer_address=172.18.0.6:60100 grpc.peer_subject="CN=peer0.insurance.com,L=San Francisco,ST=California,C=US" error="timed out waiting for connection message from 172.18.0.6:60100" grpc.code=Unknown grpc.call_duration=2.003520746s
+peer1.hospital.com       | 2019-09-24 07:25:52.646 UTC [comm.grpc.server] 1 -> INFO 020 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-09-24T07:25:54.646Z grpc.peer_address=172.18.0.8:36618 grpc.peer_subject="CN=peer0.hospital.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=185.363µs
+peer1.hospital.com       | 2019-09-24 07:25:52.653 UTC [comm.grpc.server] 1 -> INFO 021 streaming call completed grpc.service=gossip.Gossip grpc.method=GossipStream grpc.request_deadline=2019-09-24T07:26:02.648Z grpc.peer_address=172.18.0.8:36618 grpc.peer_subject="CN=peer0.hospital.com,L=San Francisco,ST=California,C=US" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=4.80649ms
+peer0.hospital.com       | 2019-09-24 07:25:52.653 UTC [comm.grpc.server] 1 -> INFO 023 streaming call completed grpc.service=gossip.Gossip grpc.method=GossipStream grpc.peer_address=172.18.0.2:55424 grpc.peer_subject="CN=peer1.hospital.com,L=San Francisco,ST=California,C=US" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=1.516683372s
+peer0.bank.com           | 2019-09-24 07:25:53.056 UTC [comm.grpc.server] 1 -> INFO 022 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-09-24T07:25:55.056Z grpc.peer_address=172.18.0.4:54944 grpc.peer_subject="CN=peer1.bank.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=114.554µs
+peer1.hospital.com       | 2019-09-24 07:25:53.880 UTC [comm.grpc.server] 1 -> INFO 022 unary call completed grpc.service=gossip.Gossip grpc.method=Ping grpc.request_deadline=2019-09-24T07:25:55.88Z grpc.peer_address=172.18.0.8:36622 grpc.peer_subject="CN=peer0.hospital.com,L=San Francisco,ST=California,C=US" grpc.code=OK grpc.call_duration=178.476µs
+orderer.insurance.com    | 2019-09-24 07:39:52.100 UTC [comm.grpc.server] 1 -> INFO 008 streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=172.18.0.9:55872 grpc.code=OK grpc.call_duration=99.897759ms
+orderer.insurance.com    | 2019-09-24 07:39:52.142 UTC [fsblkstorage] newBlockfileMgr -> INFO 009 Getting block information from block storage
+orderer.insurance.com    | 2019-09-24 07:39:52.147 UTC [orderer.commmon.multichannel] newChain -> INFO 00a Created and starting new chain medicalinsurancechannel
+orderer.insurance.com    | 2019-09-24 07:39:52.238 UTC [common.deliver] Handle -> WARN 00b Error reading from 172.18.0.9:55870: rpc error: code = Canceled desc = context canceled
+orderer.insurance.com    | 2019-09-24 07:39:52.238 UTC [comm.grpc.server] 1 -> INFO 00c streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Deliver grpc.peer_address=172.18.0.9:55870 error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=239.283223ms
+peer0.insurance.com      | 2019-09-24 07:40:04.728 UTC [endorser] callChaincode -> INFO 023 [][eee2b993] Entry chaincode: name:"cscc" 
+peer0.insurance.com      | 2019-09-24 07:40:04.729 UTC [ledgermgmt] CreateLedger -> INFO 024 Creating ledger [medicalinsurancechannel] with genesis block
+peer0.insurance.com      | 2019-09-24 07:40:04.731 UTC [fsblkstorage] newBlockfileMgr -> INFO 025 Getting block information from block storage
+peer0.insurance.com      | 2019-09-24 07:40:04.744 UTC [kvledger] CommitWithPvtData -> INFO 026 [medicalinsurancechannel] Committed block [0] with 1 transaction(s) in 10ms (state_validation=0ms block_commit=7ms state_commit=1ms)
+peer0.insurance.com      | 2019-09-24 07:40:04.746 UTC [ledgermgmt] CreateLedger -> INFO 027 Created ledger [medicalinsurancechannel] with genesis block
+peer0.insurance.com      | 2019-09-24 07:40:04.751 UTC [gossip.gossip] JoinChan -> INFO 028 Joining gossip network of channel medicalinsurancechannel with 3 organizations
+peer0.insurance.com      | 2019-09-24 07:40:04.751 UTC [gossip.gossip] learnAnchorPeers -> INFO 029 No configured anchor peers of InsuranceMSP for channel medicalinsurancechannel to learn about
+peer0.insurance.com      | 2019-09-24 07:40:04.751 UTC [gossip.gossip] learnAnchorPeers -> INFO 02a No configured anchor peers of BankMSP for channel medicalinsurancechannel to learn about
+peer0.insurance.com      | 2019-09-24 07:40:04.752 UTC [gossip.gossip] learnAnchorPeers -> INFO 02b No configured anchor peers of HospitalMSP for channel medicalinsurancechannel to learn about
+peer0.insurance.com      | 2019-09-24 07:40:04.915 UTC [gossip.state] NewGossipStateProvider -> INFO 02c Updating metadata information, current ledger sequence is at = 0, next expected block is = 1
+peer0.insurance.com      | 2019-09-24 07:40:04.916 UTC [sccapi] deploySysCC -> INFO 02d system chaincode lscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/lscc) deployed
+peer0.insurance.com      | 2019-09-24 07:40:04.916 UTC [cscc] Init -> INFO 02e Init CSCC
+peer0.insurance.com      | 2019-09-24 07:40:04.916 UTC [sccapi] deploySysCC -> INFO 02f system chaincode cscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/cscc) deployed
+peer0.insurance.com      | 2019-09-24 07:40:04.917 UTC [qscc] Init -> INFO 030 Init QSCC
+peer0.insurance.com      | 2019-09-24 07:40:04.917 UTC [sccapi] deploySysCC -> INFO 031 system chaincode qscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/qscc) deployed
+peer0.insurance.com      | 2019-09-24 07:40:04.917 UTC [sccapi] deploySysCC -> INFO 032 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+peer0.insurance.com      | 2019-09-24 07:40:04.917 UTC [endorser] callChaincode -> INFO 033 [][eee2b993] Exit chaincode: name:"cscc"  (189ms)
+peer0.insurance.com      | 2019-09-24 07:40:04.917 UTC [comm.grpc.server] 1 -> INFO 034 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.18.0.9:42310 grpc.code=OK grpc.call_duration=190.528102ms
+peer0.insurance.com      | 2019-09-24 07:40:10.918 UTC [gossip.election] beLeader -> INFO 035 787967ff72d4a4d425b2a8001fc301d07ffa6b753087b7f4c527ba8cb66f040b : Becoming a leader
+peer0.insurance.com      | 2019-09-24 07:40:10.918 UTC [gossip.service] func1 -> INFO 036 Elected as a leader, starting delivery service for channel medicalinsurancechannel
+peer0.insurance.com      | 2019-09-24 07:40:15.602 UTC [endorser] callChaincode -> INFO 037 [][4a71f549] Entry chaincode: name:"cscc" 
+peer0.insurance.com      | 2019-09-24 07:40:15.602 UTC [endorser] callChaincode -> INFO 038 [][4a71f549] Exit chaincode: name:"cscc"  (1ms)
+peer0.insurance.com      | 2019-09-24 07:40:15.602 UTC [comm.grpc.server] 1 -> INFO 039 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.18.0.9:42314 grpc.code=OK grpc.call_duration=1.033003ms
+peer1.insurance.com      | 2019-09-24 07:42:19.176 UTC [endorser] callChaincode -> INFO 026 [][f8d78049] Entry chaincode: name:"cscc" 
+peer1.insurance.com      | 2019-09-24 07:42:19.177 UTC [ledgermgmt] CreateLedger -> INFO 027 Creating ledger [medicalinsurancechannel] with genesis block
+peer1.insurance.com      | 2019-09-24 07:42:19.178 UTC [fsblkstorage] newBlockfileMgr -> INFO 028 Getting block information from block storage
+peer1.insurance.com      | 2019-09-24 07:42:19.192 UTC [kvledger] CommitWithPvtData -> INFO 029 [medicalinsurancechannel] Committed block [0] with 1 transaction(s) in 5ms (state_validation=0ms block_commit=3ms state_commit=0ms)
+peer1.insurance.com      | 2019-09-24 07:42:19.194 UTC [ledgermgmt] CreateLedger -> INFO 02a Created ledger [medicalinsurancechannel] with genesis block
+peer1.insurance.com      | 2019-09-24 07:42:19.223 UTC [gossip.gossip] JoinChan -> INFO 02b Joining gossip network of channel medicalinsurancechannel with 3 organizations
+peer1.insurance.com      | 2019-09-24 07:42:19.223 UTC [gossip.gossip] learnAnchorPeers -> INFO 02c No configured anchor peers of HospitalMSP for channel medicalinsurancechannel to learn about
+peer1.insurance.com      | 2019-09-24 07:42:19.223 UTC [gossip.gossip] learnAnchorPeers -> INFO 02d No configured anchor peers of InsuranceMSP for channel medicalinsurancechannel to learn about
+peer1.insurance.com      | 2019-09-24 07:42:19.224 UTC [gossip.gossip] learnAnchorPeers -> INFO 02e No configured anchor peers of BankMSP for channel medicalinsurancechannel to learn about
+peer1.insurance.com      | 2019-09-24 07:42:19.310 UTC [gossip.state] NewGossipStateProvider -> INFO 02f Updating metadata information, current ledger sequence is at = 0, next expected block is = 1
+peer1.insurance.com      | 2019-09-24 07:42:19.316 UTC [sccapi] deploySysCC -> INFO 030 system chaincode lscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/lscc) deployed
+peer1.insurance.com      | 2019-09-24 07:42:19.317 UTC [cscc] Init -> INFO 031 Init CSCC
+peer1.insurance.com      | 2019-09-24 07:42:19.317 UTC [sccapi] deploySysCC -> INFO 032 system chaincode cscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/cscc) deployed
+peer1.insurance.com      | 2019-09-24 07:42:19.317 UTC [qscc] Init -> INFO 033 Init QSCC
+peer1.insurance.com      | 2019-09-24 07:42:19.317 UTC [sccapi] deploySysCC -> INFO 034 system chaincode qscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/qscc) deployed
+peer1.insurance.com      | 2019-09-24 07:42:19.317 UTC [sccapi] deploySysCC -> INFO 035 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+peer1.insurance.com      | 2019-09-24 07:42:19.317 UTC [endorser] callChaincode -> INFO 036 [][f8d78049] Exit chaincode: name:"cscc"  (141ms)
+peer1.insurance.com      | 2019-09-24 07:42:19.317 UTC [comm.grpc.server] 1 -> INFO 037 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.18.0.9:48654 grpc.code=OK grpc.call_duration=142.713916ms
+peer1.insurance.com      | 2019-09-24 07:42:20.981 UTC [gossip.election] leaderElection -> INFO 038 058e9dffd6a2d8bb054ffce76e4fbaeee2b124e5a9d5bb10599a0244834dd381 : Some peer is already a leader
+peer1.insurance.com      | 2019-09-24 07:42:23.598 UTC [endorser] callChaincode -> INFO 039 [][2c0e7d3d] Entry chaincode: name:"cscc" 
+peer1.insurance.com      | 2019-09-24 07:42:23.599 UTC [endorser] callChaincode -> INFO 03a [][2c0e7d3d] Exit chaincode: name:"cscc"  (1ms)
+peer1.insurance.com      | 2019-09-24 07:42:23.600 UTC [comm.grpc.server] 1 -> INFO 03b unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.18.0.9:48656 grpc.code=OK grpc.call_duration=1.804224ms
+peer1.insurance.com      | 2019-09-24 07:42:24.223 UTC [gossip.channel] reportMembershipChanges -> INFO 03c Membership view has changed. peers went online:  [[peer0.insurance.com:7051]] , current view:  [[peer0.insurance.com:7051]]
+peer0.insurance.com      | 2019-09-24 07:42:24.752 UTC [gossip.channel] reportMembershipChanges -> INFO 03a Membership view has changed. peers went online:  [[peer1.insurance.com:8051]] , current view:  [[peer1.insurance.com:8051]]
+peer0.bank.com           | 2019-09-24 07:43:02.184 UTC [endorser] callChaincode -> INFO 023 [][3afe415d] Entry chaincode: name:"cscc" 
+peer0.bank.com           | 2019-09-24 07:43:02.185 UTC [ledgermgmt] CreateLedger -> INFO 024 Creating ledger [medicalinsurancechannel] with genesis block
+peer0.bank.com           | 2019-09-24 07:43:02.186 UTC [fsblkstorage] newBlockfileMgr -> INFO 025 Getting block information from block storage
+peer0.bank.com           | 2019-09-24 07:43:02.195 UTC [kvledger] CommitWithPvtData -> INFO 026 [medicalinsurancechannel] Committed block [0] with 1 transaction(s) in 7ms (state_validation=0ms block_commit=2ms state_commit=0ms)
+peer0.bank.com           | 2019-09-24 07:43:02.196 UTC [ledgermgmt] CreateLedger -> INFO 027 Created ledger [medicalinsurancechannel] with genesis block
+peer0.bank.com           | 2019-09-24 07:43:02.201 UTC [gossip.gossip] JoinChan -> INFO 028 Joining gossip network of channel medicalinsurancechannel with 3 organizations
+peer0.bank.com           | 2019-09-24 07:43:02.202 UTC [gossip.gossip] learnAnchorPeers -> INFO 029 No configured anchor peers of HospitalMSP for channel medicalinsurancechannel to learn about
+peer0.bank.com           | 2019-09-24 07:43:02.202 UTC [gossip.gossip] learnAnchorPeers -> INFO 02a No configured anchor peers of InsuranceMSP for channel medicalinsurancechannel to learn about
+peer0.bank.com           | 2019-09-24 07:43:02.202 UTC [gossip.gossip] learnAnchorPeers -> INFO 02b No configured anchor peers of BankMSP for channel medicalinsurancechannel to learn about
+peer0.bank.com           | 2019-09-24 07:43:02.366 UTC [gossip.state] NewGossipStateProvider -> INFO 02c Updating metadata information, current ledger sequence is at = 0, next expected block is = 1
+peer0.bank.com           | 2019-09-24 07:43:02.367 UTC [sccapi] deploySysCC -> INFO 02d system chaincode lscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/lscc) deployed
+peer0.bank.com           | 2019-09-24 07:43:02.367 UTC [cscc] Init -> INFO 02e Init CSCC
+peer0.bank.com           | 2019-09-24 07:43:02.367 UTC [sccapi] deploySysCC -> INFO 02f system chaincode cscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/cscc) deployed
+peer0.bank.com           | 2019-09-24 07:43:02.367 UTC [qscc] Init -> INFO 030 Init QSCC
+peer0.bank.com           | 2019-09-24 07:43:02.367 UTC [sccapi] deploySysCC -> INFO 031 system chaincode qscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/qscc) deployed
+peer0.bank.com           | 2019-09-24 07:43:02.367 UTC [sccapi] deploySysCC -> INFO 032 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+peer0.bank.com           | 2019-09-24 07:43:02.367 UTC [endorser] callChaincode -> INFO 033 [][3afe415d] Exit chaincode: name:"cscc"  (183ms)
+peer0.bank.com           | 2019-09-24 07:43:02.368 UTC [comm.grpc.server] 1 -> INFO 034 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.18.0.9:44776 grpc.code=OK grpc.call_duration=184.603873ms
+peer0.bank.com           | 2019-09-24 07:43:08.297 UTC [endorser] callChaincode -> INFO 035 [][3dce082e] Entry chaincode: name:"cscc" 
+peer0.bank.com           | 2019-09-24 07:43:08.298 UTC [endorser] callChaincode -> INFO 036 [][3dce082e] Exit chaincode: name:"cscc"  (1ms)
+peer0.bank.com           | 2019-09-24 07:43:08.299 UTC [comm.grpc.server] 1 -> INFO 037 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.18.0.9:44778 grpc.code=OK grpc.call_duration=1.93435ms
+peer0.bank.com           | 2019-09-24 07:43:08.368 UTC [gossip.election] beLeader -> INFO 038 d90da6d0875a1446290e38fe4f91c19b5c6222df26514446f8616d8926ff3448 : Becoming a leader
+peer0.bank.com           | 2019-09-24 07:43:08.368 UTC [gossip.service] func1 -> INFO 039 Elected as a leader, starting delivery service for channel medicalinsurancechannel
+peer1.bank.com           | 2019-09-24 07:43:22.069 UTC [endorser] callChaincode -> INFO 024 [][8f2b2a3d] Entry chaincode: name:"cscc" 
+peer1.bank.com           | 2019-09-24 07:43:22.070 UTC [ledgermgmt] CreateLedger -> INFO 025 Creating ledger [medicalinsurancechannel] with genesis block
+peer1.bank.com           | 2019-09-24 07:43:22.071 UTC [fsblkstorage] newBlockfileMgr -> INFO 026 Getting block information from block storage
+peer1.bank.com           | 2019-09-24 07:43:22.080 UTC [kvledger] CommitWithPvtData -> INFO 027 [medicalinsurancechannel] Committed block [0] with 1 transaction(s) in 6ms (state_validation=0ms block_commit=3ms state_commit=1ms)
+peer1.bank.com           | 2019-09-24 07:43:22.081 UTC [ledgermgmt] CreateLedger -> INFO 028 Created ledger [medicalinsurancechannel] with genesis block
+peer1.bank.com           | 2019-09-24 07:43:22.086 UTC [gossip.gossip] JoinChan -> INFO 029 Joining gossip network of channel medicalinsurancechannel with 3 organizations
+peer1.bank.com           | 2019-09-24 07:43:22.086 UTC [gossip.gossip] learnAnchorPeers -> INFO 02a No configured anchor peers of HospitalMSP for channel medicalinsurancechannel to learn about
+peer1.bank.com           | 2019-09-24 07:43:22.086 UTC [gossip.gossip] learnAnchorPeers -> INFO 02b No configured anchor peers of InsuranceMSP for channel medicalinsurancechannel to learn about
+peer1.bank.com           | 2019-09-24 07:43:22.086 UTC [gossip.gossip] learnAnchorPeers -> INFO 02c No configured anchor peers of BankMSP for channel medicalinsurancechannel to learn about
+peer1.bank.com           | 2019-09-24 07:43:22.169 UTC [gossip.state] NewGossipStateProvider -> INFO 02d Updating metadata information, current ledger sequence is at = 0, next expected block is = 1
+peer1.bank.com           | 2019-09-24 07:43:22.170 UTC [sccapi] deploySysCC -> INFO 02e system chaincode lscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/lscc) deployed
+peer1.bank.com           | 2019-09-24 07:43:22.170 UTC [cscc] Init -> INFO 02f Init CSCC
+peer1.bank.com           | 2019-09-24 07:43:22.170 UTC [sccapi] deploySysCC -> INFO 030 system chaincode cscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/cscc) deployed
+peer1.bank.com           | 2019-09-24 07:43:22.170 UTC [qscc] Init -> INFO 031 Init QSCC
+peer1.bank.com           | 2019-09-24 07:43:22.170 UTC [sccapi] deploySysCC -> INFO 032 system chaincode qscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/qscc) deployed
+peer1.bank.com           | 2019-09-24 07:43:22.170 UTC [sccapi] deploySysCC -> INFO 033 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+peer1.bank.com           | 2019-09-24 07:43:22.170 UTC [endorser] callChaincode -> INFO 034 [][8f2b2a3d] Exit chaincode: name:"cscc"  (101ms)
+peer1.bank.com           | 2019-09-24 07:43:22.170 UTC [comm.grpc.server] 1 -> INFO 035 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.18.0.9:59662 grpc.code=OK grpc.call_duration=101.834404ms
+peer1.bank.com           | 2019-09-24 07:43:23.385 UTC [gossip.election] leaderElection -> INFO 036 a943ab8335468acec4d66118a2737278efc123325c56baf9545af823803e1f6a : Some peer is already a leader
+peer1.bank.com           | 2019-09-24 07:43:24.980 UTC [endorser] callChaincode -> INFO 037 [][ea947b72] Entry chaincode: name:"cscc" 
+peer1.bank.com           | 2019-09-24 07:43:24.981 UTC [endorser] callChaincode -> INFO 038 [][ea947b72] Exit chaincode: name:"cscc"  (0ms)
+peer1.bank.com           | 2019-09-24 07:43:24.981 UTC [comm.grpc.server] 1 -> INFO 039 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.18.0.9:59664 grpc.code=OK grpc.call_duration=1.685209ms
+peer1.bank.com           | 2019-09-24 07:43:27.089 UTC [gossip.channel] reportMembershipChanges -> INFO 03a Membership view has changed. peers went online:  [[peer0.bank.com:9051]] , current view:  [[peer0.bank.com:9051]]
+peer0.bank.com           | 2019-09-24 07:43:27.202 UTC [gossip.channel] reportMembershipChanges -> INFO 03a Membership view has changed. peers went online:  [[peer1.bank.com:10051]] , current view:  [[peer1.bank.com:10051]]
+peer0.hospital.com       | 2019-09-24 07:43:41.533 UTC [endorser] callChaincode -> INFO 024 [][64f97257] Entry chaincode: name:"cscc" 
+peer0.hospital.com       | 2019-09-24 07:43:41.535 UTC [ledgermgmt] CreateLedger -> INFO 025 Creating ledger [medicalinsurancechannel] with genesis block
+peer0.hospital.com       | 2019-09-24 07:43:41.538 UTC [fsblkstorage] newBlockfileMgr -> INFO 026 Getting block information from block storage
+peer0.hospital.com       | 2019-09-24 07:43:41.555 UTC [kvledger] CommitWithPvtData -> INFO 027 [medicalinsurancechannel] Committed block [0] with 1 transaction(s) in 10ms (state_validation=1ms block_commit=6ms state_commit=1ms)
+peer0.hospital.com       | 2019-09-24 07:43:41.561 UTC [ledgermgmt] CreateLedger -> INFO 028 Created ledger [medicalinsurancechannel] with genesis block
+peer0.hospital.com       | 2019-09-24 07:43:41.571 UTC [gossip.gossip] JoinChan -> INFO 029 Joining gossip network of channel medicalinsurancechannel with 3 organizations
+peer0.hospital.com       | 2019-09-24 07:43:41.571 UTC [gossip.gossip] learnAnchorPeers -> INFO 02a No configured anchor peers of HospitalMSP for channel medicalinsurancechannel to learn about
+peer0.hospital.com       | 2019-09-24 07:43:41.571 UTC [gossip.gossip] learnAnchorPeers -> INFO 02b No configured anchor peers of InsuranceMSP for channel medicalinsurancechannel to learn about
+peer0.hospital.com       | 2019-09-24 07:43:41.571 UTC [gossip.gossip] learnAnchorPeers -> INFO 02c No configured anchor peers of BankMSP for channel medicalinsurancechannel to learn about
+peer0.hospital.com       | 2019-09-24 07:43:41.620 UTC [gossip.state] NewGossipStateProvider -> INFO 02d Updating metadata information, current ledger sequence is at = 0, next expected block is = 1
+peer0.hospital.com       | 2019-09-24 07:43:41.645 UTC [sccapi] deploySysCC -> INFO 02e system chaincode lscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/lscc) deployed
+peer0.hospital.com       | 2019-09-24 07:43:41.646 UTC [cscc] Init -> INFO 02f Init CSCC
+peer0.hospital.com       | 2019-09-24 07:43:41.646 UTC [sccapi] deploySysCC -> INFO 030 system chaincode cscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/cscc) deployed
+peer0.hospital.com       | 2019-09-24 07:43:41.647 UTC [qscc] Init -> INFO 031 Init QSCC
+peer0.hospital.com       | 2019-09-24 07:43:41.647 UTC [sccapi] deploySysCC -> INFO 032 system chaincode qscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/qscc) deployed
+peer0.hospital.com       | 2019-09-24 07:43:41.647 UTC [sccapi] deploySysCC -> INFO 033 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+peer0.hospital.com       | 2019-09-24 07:43:41.647 UTC [endorser] callChaincode -> INFO 034 [][64f97257] Exit chaincode: name:"cscc"  (114ms)
+peer0.hospital.com       | 2019-09-24 07:43:41.648 UTC [comm.grpc.server] 1 -> INFO 035 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.18.0.9:36994 grpc.code=OK grpc.call_duration=116.252521ms
+peer0.hospital.com       | 2019-09-24 07:43:47.647 UTC [gossip.election] beLeader -> INFO 036 04d8a55c509c187860f2af31d8cca8930eb1b7ede242415479526f927796accc : Becoming a leader
+peer0.hospital.com       | 2019-09-24 07:43:47.648 UTC [gossip.service] func1 -> INFO 037 Elected as a leader, starting delivery service for channel medicalinsurancechannel
+peer1.hospital.com       | 2019-09-24 07:43:56.473 UTC [endorser] callChaincode -> INFO 023 [][4361a753] Entry chaincode: name:"cscc" 
+peer1.hospital.com       | 2019-09-24 07:43:56.476 UTC [ledgermgmt] CreateLedger -> INFO 024 Creating ledger [medicalinsurancechannel] with genesis block
+peer1.hospital.com       | 2019-09-24 07:43:56.479 UTC [fsblkstorage] newBlockfileMgr -> INFO 025 Getting block information from block storage
+peer1.hospital.com       | 2019-09-24 07:43:56.504 UTC [kvledger] CommitWithPvtData -> INFO 026 [medicalinsurancechannel] Committed block [0] with 1 transaction(s) in 12ms (state_validation=1ms block_commit=7ms state_commit=1ms)
+peer1.hospital.com       | 2019-09-24 07:43:56.505 UTC [ledgermgmt] CreateLedger -> INFO 027 Created ledger [medicalinsurancechannel] with genesis block
+peer1.hospital.com       | 2019-09-24 07:43:56.521 UTC [gossip.gossip] JoinChan -> INFO 028 Joining gossip network of channel medicalinsurancechannel with 3 organizations
+peer1.hospital.com       | 2019-09-24 07:43:56.522 UTC [gossip.gossip] learnAnchorPeers -> INFO 029 No configured anchor peers of InsuranceMSP for channel medicalinsurancechannel to learn about
+peer1.hospital.com       | 2019-09-24 07:43:56.522 UTC [gossip.gossip] learnAnchorPeers -> INFO 02a No configured anchor peers of BankMSP for channel medicalinsurancechannel to learn about
+peer1.hospital.com       | 2019-09-24 07:43:56.522 UTC [gossip.gossip] learnAnchorPeers -> INFO 02b No configured anchor peers of HospitalMSP for channel medicalinsurancechannel to learn about
+peer1.hospital.com       | 2019-09-24 07:43:56.541 UTC [gossip.state] NewGossipStateProvider -> INFO 02c Updating metadata information, current ledger sequence is at = 0, next expected block is = 1
+peer1.hospital.com       | 2019-09-24 07:43:56.542 UTC [sccapi] deploySysCC -> INFO 02d system chaincode lscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/lscc) deployed
+peer1.hospital.com       | 2019-09-24 07:43:56.543 UTC [cscc] Init -> INFO 02e Init CSCC
+peer1.hospital.com       | 2019-09-24 07:43:56.543 UTC [sccapi] deploySysCC -> INFO 02f system chaincode cscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/cscc) deployed
+peer1.hospital.com       | 2019-09-24 07:43:56.543 UTC [qscc] Init -> INFO 030 Init QSCC
+peer1.hospital.com       | 2019-09-24 07:43:56.544 UTC [sccapi] deploySysCC -> INFO 031 system chaincode qscc/medicalinsurancechannel(github.com/hyperledger/fabric/core/scc/qscc) deployed
+peer1.hospital.com       | 2019-09-24 07:43:56.544 UTC [sccapi] deploySysCC -> INFO 032 system chaincode (+lifecycle,github.com/hyperledger/fabric/core/chaincode/lifecycle) disabled
+peer1.hospital.com       | 2019-09-24 07:43:56.545 UTC [endorser] callChaincode -> INFO 033 [][4361a753] Exit chaincode: name:"cscc"  (71ms)
+peer1.hospital.com       | 2019-09-24 07:43:56.545 UTC [comm.grpc.server] 1 -> INFO 034 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.18.0.9:60264 grpc.code=OK grpc.call_duration=73.972261ms
+peer1.hospital.com       | 2019-09-24 07:43:57.664 UTC [gossip.election] leaderElection -> INFO 035 45b018704f25558de334dcbfee2f2aded21d83458f235fb3ce956a2f4199cd7e : Some peer is already a leader
+peer1.hospital.com       | 2019-09-24 07:44:00.790 UTC [endorser] callChaincode -> INFO 036 [][72acb192] Entry chaincode: name:"cscc" 
+peer1.hospital.com       | 2019-09-24 07:44:00.791 UTC [endorser] callChaincode -> INFO 037 [][72acb192] Exit chaincode: name:"cscc"  (1ms)
+peer1.hospital.com       | 2019-09-24 07:44:00.791 UTC [comm.grpc.server] 1 -> INFO 038 unary call completed grpc.service=protos.Endorser grpc.method=ProcessProposal grpc.peer_address=172.18.0.9:60266 grpc.code=OK grpc.call_duration=1.214898ms
+peer1.hospital.com       | 2019-09-24 07:44:01.526 UTC [gossip.channel] reportMembershipChanges -> INFO 039 Membership view has changed. peers went online:  [[peer0.hospital.com:11051]] , current view:  [[peer0.hospital.com:11051]]
+peer0.hospital.com       | 2019-09-24 07:44:01.576 UTC [gossip.channel] reportMembershipChanges -> INFO 038 Membership view has changed. peers went online:  [[peer1.hospital.com:12051]] , current view:  [[peer1.hospital.com:12051]]
+
+
