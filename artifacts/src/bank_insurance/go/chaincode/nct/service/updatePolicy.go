@@ -4,14 +4,13 @@ import ( // Add Golang imports here
 
 	// Add Hyperledger imports here
 	"encoding/json"
-	"fmt"
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	// Add 3rd part imports here
 	// Add local imports here
 
-	nct "test/chaincode/nct"
-	"test/chaincode/nct/config"
+	nct "D-KBlockchainProject/artifacts/src/bank_insurance/go/chaincode/nct"
+	"D-KBlockchainProject/artifacts/src/bank_insurance/go/chaincode/nct/config"
 )
 
 func UpdatePolicyByBankRefID(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
@@ -34,7 +33,7 @@ func UpdatePolicyByBankRefID(stub shim.ChaincodeStubInterface, args []string) ([
 		//return empty response for non-exists record
 		logger.Infof("Record not found")
 		// return nil, nil
-	}	
+	}
 
 	var ledgerInfo nct.Policy
 	json.Unmarsal(record.Value, &ledgerInfo)
@@ -45,6 +44,6 @@ func UpdatePolicyByBankRefID(stub shim.ChaincodeStubInterface, args []string) ([
 
 	ledgerInfoBytesAsJSON, _ := json.Marshal(&ledgerInfo)
 	stub.PutState(bankRefNo, ledgerInfoBytesAsJSON)
-	stub.SetEvent("policyCreated", []byte(bankRefNo))
+	stub.SetEvent("policyUpdated", []byte(bankRefNo))
 	return nil, nil
 }
