@@ -13,8 +13,8 @@ import (
 	// Add 3rd part imports here
 	//"github.com/shopspring/decimal"
 	// Add local imports here
-	nct "D-KBlockchainProject/artifacts/src/bank_insurance/go/chaincode/nct/service"
-	"D-KBlockchainProject/artifacts/src/bank_insurance/go/chaincode/nct/config"
+	nct "github.com/chaincode/bank_insurance/go/chaincode/nct/service"
+	"github.com/chaincode/bank_insurance/go/chaincode/nct/config"
 )
 
 // JPNCTChaincode Chaincode struct (No field should be here)

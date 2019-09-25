@@ -9,8 +9,8 @@ import ( // Add Golang imports here
 	// Add 3rd part imports here
 	// Add local imports here
 
-	nct "D-KBlockchainProject/artifacts/src/bank_insurance/go/chaincode/nct"
-	"D-KBlockchainProject/artifacts/src/bank_insurance/go/chaincode/nct/config"
+	nct "github.com/chaincode/bank_insurance/go/chaincode/nct"
+	"github.com/chaincode/bank_insurance/go/chaincode/nct/config"
 )
 
 func UpdatePolicyByBankRefID(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {

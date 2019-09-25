@@ -11,8 +11,8 @@ import ( // Add Golang imports here
 
 	// Add local imports here
 
-	nct "D-KBlockchainProject/artifacts/src/bank_insurance/go/chaincode/nct"
-	"D-KBlockchainProject/artifacts/src/bank_insurance/go/chaincode/nct/config"
+	nct "github.com/chaincode/bank_insurance/go/chaincode/nct"
+	"github.com/chaincode/bank_insurance/go/chaincode/nct/config"
 )
 
 // CreateAgreementComponent to create JP NCT AC
