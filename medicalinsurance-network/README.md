@@ -91,11 +91,26 @@ peer channel list
 
 # INSTALL CHAINCODE
 
+peer chaincode install -n mycc -v 1.0 -l golang -p github.com/chaincode/chaincode_example02/go/
+
+peer chaincode list --installed
+
 # INSTANTIATE CHAINCODE
+
+peer chaincode instantiate -o orderer.insurance.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc -l golang -v 1.0 -c '{"Args":["init","a","100","b","200"]}' -P "OR ('InsuranceMSP.peer','BankMSP.peer')"
+
+peer chaincode list --instantiated -C medicalinsurancechannel
 
 # QUERY CHAINCODE
 
+peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","a"]}'
+
+peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","b"]}'
+
 # INVOKE CHAINCODE
+
+peer chaincode invoke -o orderer.insurance.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc --peerAddresses peer0.insurance.com:7051 --tlsRootCertFiles $PEER0_ORG1_CA -c '{"Args":["invoke","a","b","10"]}'
+
 
 # TEARDOWN & CLEANUP
 
