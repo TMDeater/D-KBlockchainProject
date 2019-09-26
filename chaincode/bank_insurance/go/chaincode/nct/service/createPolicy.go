@@ -11,13 +11,8 @@ import ( // Add Golang imports here
 
 	// Add local imports here
 
-<<<<<<< HEAD:chaincode/bank_insurance/go/chaincode/nct/service/createPolicy.go
 	nct "D-KBlockchainProject/chaincode/bank_insurance/go/chaincode/nct"
 	"D-KBlockchainProject/chaincode/bank_insurance/go/chaincode/nct/config"
-=======
-	nct "github.com/chaincode/bank_insurance/go/chaincode/nct"
-	"github.com/chaincode/bank_insurance/go/chaincode/nct/config"
->>>>>>> ecd0757d96465308205186c1bf90e2ce33c30ef6:chaincode/bank_insurance/go/chaincode/nct/service/createPolicy.go
 )
 
 // CreateAgreementComponent to create JP NCT AC
