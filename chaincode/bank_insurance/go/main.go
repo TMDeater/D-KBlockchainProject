@@ -6,8 +6,8 @@ import (
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	// Add 3rd part imports here
 	// Add local imports here
-	cc "test/chaincode"
-	"test/chaincode/nct/config"
+	cc "github.com/chaincode/bank_insurance/go/chaincode"
+	"github.com/chaincode/bank_insurance/go/chaincode/nct/config"
 )
 
 // Each Golang project can have only 1 main

@@ -3,15 +3,13 @@ package service
 import ( // Add Golang imports here
 
 	// Add Hyperledger imports here
-	"encoding/json"
-	"fmt"
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	// Add 3rd part imports here
 	// Add local imports here
 
-	nct "test/chaincode/nct"
-	"test/chaincode/nct/config"
+	nct "github.com/chaincode/bank_insurance/go/chaincode/nct"
+	"github.com/chaincode/bank_insurance/go/chaincode/nct/config"
 )
 
 // GetInsurencePolicyByBankRefID to retreieve JP NCT AC

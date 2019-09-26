@@ -1,8 +1,6 @@
 package service
 
-import (
-
-	// Add Golang imports here
+import ( // Add Golang imports here
 
 	// Add Hyperledger imports here
 	"encoding/json"
@@ -13,8 +11,8 @@ import (
 
 	// Add local imports here
 
-	nct "test/chaincode/nct"
-	"test/chaincode/nct/config"
+	nct "github.com/chaincode/bank_insurance/go/chaincode/nct"
+	"github.com/chaincode/bank_insurance/go/chaincode/nct/config"
 )
 
 // CreateAgreementComponent to create JP NCT AC
@@ -31,7 +29,7 @@ func CreatePolicy(stub shim.ChaincodeStubInterface, args []string) ([]byte, erro
 	// errorMsg := ErrorMessageResponse{}
 
 	// // Parse the input data
-	insurancePolicyNo := args[0] 
+	insurancePolicyNo := args[0]
 	status := args[1]
 	statusRemark := args[2]
 
@@ -54,7 +52,6 @@ func CreatePolicy(stub shim.ChaincodeStubInterface, args []string) ([]byte, erro
 	ac.Currency = currency
 	ac.PayMode, _ = strconv.ParseFloat(payMode, 64)
 	ac.PlanRegion = planRegion
-	
 
 	acBytesAsJSON, _ := json.Marshal(&ac)
 	stub.PutState(bankRefNo, acBytesAsJSON)

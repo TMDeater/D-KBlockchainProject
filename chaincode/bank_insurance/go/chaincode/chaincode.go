@@ -13,8 +13,8 @@ import (
 	// Add 3rd part imports here
 	//"github.com/shopspring/decimal"
 	// Add local imports here
-	"test/chaincode/nct/config"
-	nct "test/chaincode/nct/service"
+	nct "github.com/chaincode/bank_insurance/go/chaincode/nct/service"
+	"github.com/chaincode/bank_insurance/go/chaincode/nct/config"
 )
 
 // JPNCTChaincode Chaincode struct (No field should be here)
@@ -34,6 +34,7 @@ const (
 	createPolicy					string = "createPolicy"
 	getPolicyByBankRefID			string = "getPolicyByBankRefID"
 	getPolicyByInsurancePolicyNo	string = "getPolicyByInsurancePolicyNo"
+	updatePolicyByBankRefID			string = "updatePolicyByBankRefID"
 
 )
 
@@ -81,13 +82,19 @@ func (t *JPNCTChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	// 	}
 	// 	return shim.Success(result)
 	case getPolicyByBankRefID:
-		result, err := nct.getPolicyByBankRefID(stub, args)
+		result, err := nct.GetPolicyByBankRefID(stub, args)
 		if err != nil {
 			return shim.Error(err.Error())
 		}
 		return shim.Success(result)
 	case getPolicyByInsurancePolicyNo:
-		result, err := nct.getPolicyByInsurancePolicyNo(stub, args)
+		result, err := nct.GetPolicyByInsurancePolicyNo(stub, args)
+		if err != nil {
+			return shim.Error(err.Error())
+		}
+		return shim.Success(result)
+	case updatePolicyByBankRefID:
+		result, err := nct.UpdatePolicyByBankRefID(stub, args)
 		if err != nil {
 			return shim.Error(err.Error())
 		}
