@@ -3,13 +3,19 @@ package service
 import ( // Add Golang imports here
 
 	// Add Hyperledger imports here
+	"encoding/json"
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	// Add 3rd part imports here
 	// Add local imports here
 
+<<<<<<< HEAD:chaincode/bank_insurance/go/chaincode/nct/service/getPolicy.go
+	nct "D-KBlockchainProject/chaincode/bank_insurance/go/chaincode/nct"
+	"D-KBlockchainProject/chaincode/bank_insurance/go/chaincode/nct/config"
+=======
 	nct "github.com/chaincode/bank_insurance/go/chaincode/nct"
 	"github.com/chaincode/bank_insurance/go/chaincode/nct/config"
+>>>>>>> ecd0757d96465308205186c1bf90e2ce33c30ef6:chaincode/bank_insurance/go/chaincode/nct/service/getPolicy.go
 )
 
 // GetInsurencePolicyByBankRefID to retreieve JP NCT AC
@@ -74,29 +80,29 @@ func GetPolicyByInsurancePolicyNo(stub shim.ChaincodeStubInterface, args []strin
 	results := []nct.AgreementComponent{}
 	records, err := stub.GetStateByPartialCompositeKey("policyKey", []string{insurancePolicyNo})
 
-	if record == nil {
+	if records == nil {
 		//return empty response for non-exists record
 		logger.Infof("Record not found")
 		return nil, nil
 	}
 
-	return record, nil
+	// return records, nil
 
-	// if !records.HasNext() {
-	// 	logger.Infof("Record does not exist")
-	// 	return nil, err
-	// }
+	if !records.HasNext() {
+		logger.Infof("Record does not exist")
+		return nil, err
+	}
 
-	// for records.HasNext() {
-	// 	iteratorValue, _ := records.Next()
+	for records.HasNext() {
+		iteratorValue, _ := records.Next()
 
-	// 	var tempOutput nct.AgreementComponent
-	// 	json.Unmarshal(iteratorValue.Value, &tempOutput)
-	// 	results = append(results, tempOutput)
-	// }
-	// resultsAsJSON, _ := json.Marshal(&results)
+		var tempOutput nct.AgreementComponent
+		json.Unmarshal(iteratorValue.Value, &tempOutput)
+		results = append(results, tempOutput)
+	}
+	resultsAsJSON, _ := json.Marshal(&results)
 
-	// return resultsAsJSON, nil
+	return resultsAsJSON, nil
 }
 
 // // GetAgreementComponentByGender to retreieve JP NCT AC with composite key
