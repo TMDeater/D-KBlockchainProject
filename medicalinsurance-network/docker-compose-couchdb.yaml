@@ -104,7 +104,97 @@ services:
       - ./crypto-config/peerOrganizations/hospital.com/ca/:/etc/hyperledger/fabric-ca-server-config
     networks:
       - medicalinsurance
-      
+
+  couchdb0:
+    container_name: couchdb0.peer0.insurance.com
+    image: hyperledger/fabric-couchdb
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports:
+      - "7984:7984"
+    networks:
+      - medicalinsurance
+
+  couchdb1:
+    container_name: couchdb1.peer1.insurance.com
+    image: hyperledger/fabric-couchdb
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports:
+      - "8984:7984"
+    networks:
+      - medicalinsurance
+
+  couchdb2:
+    container_name: couchdb2.peer0.bank.com
+    image: hyperledger/fabric-couchdb
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports:
+      - "9984:7984"
+    networks:
+      - medicalinsurance
+
+  couchdb3:
+    container_name: couchdb3.peer1.bank.com
+    image: hyperledger/fabric-couchdb
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports:
+      - "10984:7984"
+    networks:
+      - medicalinsurance
+
+  couchdb4:
+    container_name: couchdb4.peer0.hospital.com
+    image: hyperledger/fabric-couchdb
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports:
+      - "11984:7984"
+    networks:
+      - medicalinsurance
+
+  couchdb5:
+    container_name: couchdb5.peer1.hospital.com
+    image: hyperledger/fabric-couchdb
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports:
+      - "12984:7984"
+    networks:
+      - medicalinsurance
+
   peer0.insurance.com:
     container_name: peer0.insurance.com
     image: hyperledger/fabric-peer:$IMAGE_TAG
@@ -131,6 +221,13 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.insurance.com:8051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.insurance.com:7051
       - CORE_PEER_LOCALMSPID=InsuranceMSP
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: peer node start
     volumes:
@@ -143,6 +240,8 @@ services:
       - 7053:7053
     networks:
       - medicalinsurance
+    depends_on:
+      - couchdb0
 
   peer1.insurance.com:
     container_name: peer1.insurance.com
@@ -170,6 +269,13 @@ services:
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.insurance.com:8051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.insurance.com:7051
       - CORE_PEER_LOCALMSPID=InsuranceMSP
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: peer node start
     volumes:
@@ -182,6 +288,8 @@ services:
       - 8053:7053
     networks:
       - medicalinsurance
+    depends_on:
+      - couchdb1
 
   peer0.bank.com:
     container_name: peer0.bank.com
@@ -209,6 +317,13 @@ services:
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.bank.com:9051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.bank.com:10051
       - CORE_PEER_LOCALMSPID=BankMSP
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb2:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: peer node start
     volumes:
@@ -221,6 +336,8 @@ services:
       - 9053:7053
     networks:
       - medicalinsurance
+    depends_on:
+      - couchdb2
 
   peer1.bank.com:
     container_name: peer1.bank.com
@@ -248,6 +365,13 @@ services:
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.bank.com:10051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.bank.com:9051
       - CORE_PEER_LOCALMSPID=BankMSP
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb3:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: peer node start
     volumes:
@@ -260,7 +384,9 @@ services:
       - 10053:7053
     networks:
       - medicalinsurance
-  
+    depends_on:
+      - couchdb3
+
   peer0.hospital.com:
     container_name: peer0.hospital.com
     image: hyperledger/fabric-peer:$IMAGE_TAG
@@ -287,6 +413,13 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.hospital.com:12051
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.hospital.com:11051
       - CORE_PEER_LOCALMSPID=HospitalMSP
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb4:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: peer node start
     volumes:
@@ -299,6 +432,8 @@ services:
       - 11053:7053
     networks:
       - medicalinsurance
+    depends_on:
+      - couchdb4
 
   peer1.hospital.com:
     container_name: peer1.hospital.com
@@ -326,6 +461,13 @@ services:
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.hospital.com:12051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.hospital.com:11051
       - CORE_PEER_LOCALMSPID=HospitalMSP
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb5:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: peer node start
     volumes:
@@ -338,6 +480,8 @@ services:
       - 12053:7053
     networks:
       - medicalinsurance
+    depends_on:
+      - couchdb5
 
   cli:
     container_name: cli
