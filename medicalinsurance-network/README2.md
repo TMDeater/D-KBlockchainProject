@@ -20,6 +20,13 @@ configtxgen -profile MedicalInsuranceOrdererGenesis -channelID medicalinsurance-
 
 configtxgen -profile MedicalInsuranceChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID $CHANNEL_NAME
 
+#  Manually copy _sk for each CA in docker-compose-3in1.yaml
+
+#  ls crypto-config/peerOrganizations/insurance.com/ca/
+
+#  ls crypto-config/peerOrganizations/bank.com/ca/
+
+#  ls crypto-config/peerOrganizations/hospital.com/ca/
 
 #####################
 # Start the network #
