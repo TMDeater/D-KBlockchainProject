@@ -9,8 +9,8 @@ import ( // Add Golang imports here
 	// Add 3rd part imports here
 	// Add local imports here
 
-	nct "github.com/chaincode/bank_insurance/go/chaincode/nct"
-	"github.com/chaincode/bank_insurance/go/chaincode/nct/config"
+	nct "D-KBlockchainProject/chaincode/bank_insurance/go/chaincode/nct"
+	"D-KBlockchainProject/chaincode/bank_insurance/go/chaincode/nct/config"
 )
 
 func UpdatePolicyByBankRefID(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
@@ -36,11 +36,11 @@ func UpdatePolicyByBankRefID(stub shim.ChaincodeStubInterface, args []string) ([
 	}
 
 	var ledgerInfo nct.Policy
-	json.Unmarsal(record.Value, &ledgerInfo)
+	json.Unmarshal(record, &ledgerInfo)
 
 	ledgerInfo.InsurancePolicyNo = insurancePolicyNo
 	ledgerInfo.Status = status
-	ledgerInfo.StatusRemarkk = statusRemark
+	ledgerInfo.StatusRemark = statusRemark
 
 	ledgerInfoBytesAsJSON, _ := json.Marshal(&ledgerInfo)
 	stub.PutState(bankRefNo, ledgerInfoBytesAsJSON)
