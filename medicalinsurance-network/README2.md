@@ -37,6 +37,8 @@ docker-compose -f docker-compose-3in1.yaml up -d
 # ALTERNATIVE:
 # docker-compose -f docker-compose-3in1.yaml up
 
+ocker cp /home/formssi/go/src/D-KBlockchainProject/ cli:/opt/gopath/src/
+
 docker exec -it cli bash
 
 source ./scripts/setGlobalVariables.sh
