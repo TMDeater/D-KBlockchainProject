@@ -13,8 +13,8 @@ import (
 	// Add 3rd part imports here
 	//"github.com/shopspring/decimal"
 	// Add local imports here
-	nct "D-KBlockchainProject/chaincode/bank_insurance/go/chaincode/nct/service"
 	"D-KBlockchainProject/chaincode/bank_insurance/go/chaincode/nct/config"
+	nct "D-KBlockchainProject/chaincode/bank_insurance/go/chaincode/nct/service"
 )
 
 // JPNCTChaincode Chaincode struct (No field should be here)
@@ -31,11 +31,10 @@ const (
 	getAgreementComponentByCountry           string = "getAgreementComponentByCountry"
 	getAgreementComponentByGender            string = "getAgreementComponentByGender"
 
-	createPolicy					string = "createPolicy"
-	getPolicyByBankRefID			string = "getPolicyByBankRefID"
-	getPolicyByInsurancePolicyNo	string = "getPolicyByInsurancePolicyNo"
-	updatePolicyByBankRefID			string = "updatePolicyByBankRefID"
-
+	createPolicy                 string = "createPolicy"
+	getPolicyByBankRefID         string = "getPolicyByBankRefID"
+	getPolicyByInsurancePolicyNo string = "getPolicyByInsurancePolicyNo"
+	updatePolicyByBankRefID      string = "updatePolicyByBankRefID"
 )
 
 // NO business functions should locate here
@@ -99,20 +98,21 @@ func (t *JPNCTChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 			return shim.Error(err.Error())
 		}
 		return shim.Success(result)
-	// case getAgreementComponentByCountry:
-	// 	result, err := nct.GetAgreementComponentByCountry(stub, args)
-	// 	if err != nil {
-	// 		return shim.Error(err.Error())
-	// 	}
-	// 	return shim.Success(result)
-	// case getAgreementComponentByGender:
-	// 	result, err := nct.GetAgreementComponentByGender(stub, args)
-	// 	if err != nil {
-	// 		return shim.Error(err.Error())
-	// 	}
-	// 	return shim.Success(result)
-	// }
-
+		// case getAgreementComponentByCountry:
+		// 	result, err := nct.GetAgreementComponentByCountry(stub, args)
+		// 	if err != nil {
+		// 		return shim.Error(err.Error())
+		// 	}
+		// 	return shim.Success(result)
+		// case getAgreementComponentByGender:
+		// 	result, err := nct.GetAgreementComponentByGender(stub, args)
+		// 	if err != nil {
+		// 		return shim.Error(err.Error())
+		// 	}
+		// 	return shim.Success(result)
+		// }
+	}
 	errMsg := fmt.Sprintln("Received unknown action invocation: [action:", action, ", args:", args, "].")
 	return shim.Error(errMsg)
+
 }
