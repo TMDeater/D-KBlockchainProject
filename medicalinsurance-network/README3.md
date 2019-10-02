@@ -24,10 +24,13 @@ configtxgen -profile MedicalInsuranceChannel -outputCreateChannelTx ./channel-ar
 
 #  Manually copy _sk for each CA in docker-compose-couch.yaml
 
+#  ca0:
 #  ls crypto-config/peerOrganizations/insurance.com/ca/
 
+#  ca1:
 #  ls crypto-config/peerOrganizations/bank.com/ca/
 
+#  ca2:
 #  ls crypto-config/peerOrganizations/hospital.com/ca/
 
 #####################
@@ -41,7 +44,7 @@ docker-compose -f docker-compose-couchdb.yaml up -d
 # ALTERNATIVE:
 # docker-compose -f docker-compose-couchdb.yaml up
 
-ocker cp /home/formssi/go/src/D-KBlockchainProject/ cli:/opt/gopath/src/
+docker cp /home/formssi/go/src/D-KBlockchainProject/ cli:/opt/gopath/src/
 
 docker exec -it cli bash
 
@@ -64,6 +67,7 @@ peer channel join -b $CHANNEL_NAME.block
 peer channel list
 
 peer chaincode install -n mycc -v 1.0 -l golang -p github.com/chaincode/chaincode_example02/go/
+# peer chaincode install -n mycc -v 1.0 -l golang -p D-KBlockchainProject/chaincode/bank_insurance/go/
 
 peer chaincode list --installed
 
