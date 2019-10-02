@@ -20,7 +20,7 @@ configtxgen -profile MedicalInsuranceOrdererGenesis -channelID medicalinsurance-
 
 configtxgen -profile MedicalInsuranceChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID $CHANNEL_NAME
 
-#  Manually copy _sk for each CA in docker-compose-3in1.yaml
+#  Manually copy _sk for each CA in docker-compose-couch.yaml
 
 #  ls crypto-config/peerOrganizations/insurance.com/ca/
 
@@ -32,10 +32,12 @@ configtxgen -profile MedicalInsuranceChannel -outputCreateChannelTx ./channel-ar
 # Start the network #
 #####################
 
-docker-compose -f docker-compose-3in1.yaml up -d
+# may need sudo
+
+docker-compose -f docker-compose-couch.yaml up -d
 
 # ALTERNATIVE:
-# docker-compose -f docker-compose-3in1.yaml up
+# docker-compose -f docker-compose-couch.yaml up
 
 docker exec -it cli bash
 
