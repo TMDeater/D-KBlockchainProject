@@ -36,10 +36,10 @@ configtxgen -profile MedicalInsuranceChannel -outputCreateChannelTx ./channel-ar
 
 # may need sudo
 
-docker-compose -f docker-compose-couch.yaml up -d
+docker-compose -f docker-compose-couchdb.yaml up -d
 
 # ALTERNATIVE:
-# docker-compose -f docker-compose-couch.yaml up
+# docker-compose -f docker-compose-couchdb.yaml up
 
 ocker cp /home/formssi/go/src/D-KBlockchainProject/ cli:/opt/gopath/src/
 
@@ -157,7 +157,7 @@ peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","b"]}'
 
 # TEARDOWN & CLEANUP
 
-docker-compose -f docker-compose-3in1.yaml down -v
+docker-compose -f docker-compose-couchdb.yaml down -v
 
 docker system prune
 
