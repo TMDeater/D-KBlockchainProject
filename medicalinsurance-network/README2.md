@@ -2,6 +2,8 @@
 # Medical Insurance Network Setup #
 ###################################
 
+# some steps may require sudo
+
 export PATH=/home/formssi/D-KBlockchainProject/bin:$PATH
 
 cd ~/D-KBlockchainProject/medicalinsurance-network
