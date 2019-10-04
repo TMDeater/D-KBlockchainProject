@@ -44,6 +44,10 @@ docker-compose -f docker-compose-couchdb.yaml up -d
 # ALTERNATIVE:
 # docker-compose -f docker-compose-couchdb.yaml up
 
+#  CHECK YOUR CONTAINERS ARE UP AND RUNNING
+#  OPEN NEW TERMINAL WINDOW IF NECESSARY
+#  docker ps -a
+
 docker cp /home/formssi/go/src/D-KBlockchainProject/ cli:/opt/gopath/src/
 
 docker exec -it cli bash
@@ -67,7 +71,15 @@ peer channel join -b $CHANNEL_NAME.block
 peer channel list
 
 peer chaincode install -n mycc -v 1.0 -l golang -p github.com/chaincode/chaincode_example02/go/
+
+#  BANK_INSURANCE CHAINCODE
 # peer chaincode install -n mycc -v 1.0 -l golang -p D-KBlockchainProject/chaincode/bank_insurance/go/
+
+#  MARBLES COMMON CHANNEL
+#  peer chaincode install -n marbles -v 1.0 -l golang -p github.com/chaincode/marbles02/go/
+
+#  MARBLES PRIVATE CHANNEL
+#  peer chaincode install -n marblesp -v 1.0 -l golang -p github.com/chaincode/marbles02_private/go/
 
 peer chaincode list --installed
 
@@ -82,6 +94,12 @@ peer channel list
 
 peer chaincode install -n mycc -v 1.0 -l golang -p github.com/chaincode/chaincode_example02/go/
 
+#  MARBLES PRIVATE CHANNEL
+#  peer chaincode install -n marblesp -v 1.0 -l golang -p github.com/chaincode/marbles02_private/go/
+
+#  MARBLES COMMON CHANNEL
+#  peer chaincode install -n marbles -v 1.0 -l golang -p github.com/chaincode/marbles02_private/go/
+
 peer chaincode list --installed
 
 
@@ -94,6 +112,12 @@ peer channel join -b $CHANNEL_NAME.block
 peer channel list
 
 peer chaincode install -n mycc -v 1.0 -l golang -p github.com/chaincode/chaincode_example02/go/
+
+#  MARBLES PRIVATE CHANNEL
+#  peer chaincode install -n marblesp -v 1.0 -l golang -p github.com/chaincode/marbles02_private/go/
+
+#  MARBLES COMMON CHANNEL
+#  peer chaincode install -n marbles -v 1.0 -l golang -p github.com/chaincode/marbles02_private/go/
 
 peer chaincode list --installed
 
@@ -108,6 +132,12 @@ peer channel list
 
 peer chaincode install -n mycc -v 1.0 -l golang -p github.com/chaincode/chaincode_example02/go/
 
+#  MARBLES PRIVATE CHANNEL
+#  peer chaincode install -n marblesp -v 1.0 -l golang -p github.com/chaincode/marbles02_private/go/
+
+#  MARBLES COMMON CHANNEL
+#  peer chaincode install -n marbles -v 1.0 -l golang -p github.com/chaincode/marbles02_private/go/
+
 peer chaincode list --installed
 
 
@@ -120,6 +150,12 @@ peer channel join -b $CHANNEL_NAME.block
 peer channel list
 
 peer chaincode install -n mycc -v 1.0 -l golang -p github.com/chaincode/chaincode_example02/go/
+
+#  MARBLES PRIVATE CHANNEL
+#  peer chaincode install -n marblesp -v 1.0 -l golang -p github.com/chaincode/marbles02_private/go/
+
+#  MARBLES COMMON CHANNEL
+#  peer chaincode install -n marbles -v 1.0 -l golang -p github.com/chaincode/marbles02_private/go/
 
 peer chaincode list --installed
 
@@ -134,15 +170,34 @@ peer channel list
 
 peer chaincode install -n mycc -v 1.0 -l golang -p github.com/chaincode/chaincode_example02/go/
 
+#  MARBLES PRIVATE CHANNEL
+#  peer chaincode install -n marblesp -v 1.0 -l golang -p github.com/chaincode/marbles02_private/go/
+
+#  MARBLES COMMON CHANNEL
+#  peer chaincode install -n marbles -v 1.0 -l golang -p github.com/chaincode/marbles02_private/go/
+
 peer chaincode list --installed
 
 
 # INSTANTIATE CHAINCODE (ONLY REQUIRED ONCE VIA ANY PEER)
 
+#  CONNECT TO peer0.insurance.com:7051:
+#  source ./scripts/changeToOrg1Peer0.sh
+
+#  MYCC CHAINCODE
 peer chaincode instantiate -o orderer.insurance.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc -l golang -v 1.0 -c '{"Args":["init","a","100","b","200"]}'
 
-# Alternative:
+# Alternative:  MYCC CHAINCODE
 # peer chaincode instantiate -o orderer.insurance.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc -l golang -v 1.0 -c '{"Args":["init","a","100","b","200"]}' -P "OR ('InsuranceMSP.peer','BankMSP.peer')"
+
+#  MARBLES_PRIVATE CHANNEL
+#  peer chaincode instantiate -o orderer.insurance.com:7050 --tls --cafile $ORDERER_CA -C medicalinsurancechannel -n marblesp -v 1.0 -c '{"Args":["init"]}' -P "OR('InsuranceMSP.member','BankMSP.member')" --collections-config  $GOPATH/src/github.com/chaincode/marbles02_private/collections_config.json
+
+#  MARBLES COMMON CHANNEL
+#  peer chaincode instantiate -o orderer.insurance.com:7050 --tls --cafile $ORDERER_CA -C medicalinsurancechannel -n marbles -v 1.0 -c '{"Args":["init"]}'
+
+#  Alternative:  MARBLES COMMON CHANNEL
+#  peer chaincode instantiate -o orderer.insurance.com:7050 --tls --cafile $ORDERER_CA -C medicalinsurancechannel -n marbles -v 1.0 -c '{"Args":["init"]}' -P "OR('InsuranceMSP.member','BankMSP.member')"
 
 peer chaincode list --instantiated -C medicalinsurancechannel
 
@@ -151,6 +206,15 @@ peer chaincode list --instantiated -C medicalinsurancechannel
 
 peer chaincode invoke -o orderer.insurance.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc --peerAddresses peer0.insurance.com:7051 --tlsRootCertFiles $PEER0_ORG1_CA -c '{"Args":["invoke","a","b","10"]}'
 
+#  MARBLES_PRIVATE
+#  peer chaincode invoke -o orderer.insurance.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/insurance.com/orderers/orderer.insurance.com/msp/tlscacerts/tlsca.insurance.com-cert.pem -C medicalinsurancechannel -n marblesp -c '{"Args":["initMarble"]}'  --transient "{\"marble\":\"$MARBLE\"}"
+
+#  MARBLES COMMON CHANNEL
+#  peer chaincode invoke -o orderer.insurance.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/insurance.com/orderers/orderer.insurance.com/msp/tlscacerts/tlsca.insurance.com-cert.pem -C medicalinsurancechannel -n marbles --peerAddresses peer0insurance.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/insurance.com/peers/peer0.insurance.com/tls/ca.crt --peerAddresses peer0.bank.com:9051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/bank.com/peers/peer0.bank.com/tls/ca.crt -c '{"Args":["initMarble","marble1","blue","35","tom"]}'
+
+#  Alternative:  MARBLES COMMON CHANNEL
+#  peer chaincode invoke -o orderer.insurance.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/insurance.com/orderers/orderer.insurance.com/msp/tlscacerts/tlsca.insurance.com-cert.pem -C medicalinsurancechannel -n marbles --peerAddresses peer0.insurance.com:7051 --tlsRootCertFiles $PEER0_ORG1_CA -c '{"Args":["initMarble","marble1","blue","35","tom"]}'
+
 
 # QUERY CHAINCODE
 
@@ -158,6 +222,11 @@ peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","a"]}'
 
 peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","b"]}'
 
+#  MARBLES_PRIVATE
+#
+
+#  MARBLES COMMON CHANNEL
+#  peer chaincode query -C $CHANNEL_NAME -n marbles -c '{"Args":["readMarble","marble1"]}'
 
 # TEARDOWN & CLEANUP
 

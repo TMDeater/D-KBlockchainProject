@@ -59,7 +59,7 @@ services:
       - FABRIC_CA_SERVER_CA_NAME=ca-insurance
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.insurance.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/d9368720197c5282b909199cf83fa396a255d01f3304239dfa6d55bbe966993d_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/6a516a9c709cc86de40cd6731c735a0c151a9bc7664ff5094f891eaf6589eec0_sk
       - FABRIC_CA_SERVER_PORT=7054
     ports:
       - "7054:7054"
@@ -77,7 +77,7 @@ services:
       - FABRIC_CA_SERVER_CA_NAME=ca-bank
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.bank.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/162005195d0c2e89b117efaa195272cbb9a45ddae9b15c65adaf31987e69d864_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/5526cbf6c0189bbc4307d42a344fa9f1ce455fa5c1f35bd1e41f91acb7ec0aaf_sk
       - FABRIC_CA_SERVER_PORT=9054
     ports:
       - "9054:9054"
@@ -95,7 +95,7 @@ services:
       - FABRIC_CA_SERVER_CA_NAME=ca-hospital
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.hospital.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/558e424a9669aef7791732481059396276a4d3cc386ebeb6117223981f4dba78_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/5a3b8d3c773d1149c5ea5463f023cba000280f9075a50fbe7ad79f3e2ae5a854_sk
       - FABRIC_CA_SERVER_PORT=11054
     ports:
       - "11054:11054"
@@ -116,7 +116,7 @@ services:
     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
     # for example map it to utilize Fauxton User Interface in dev environments.
     ports:
-      - "7984:7984"
+      - "5984:5984"
     networks:
       - medicalinsurance
 
@@ -131,7 +131,7 @@ services:
     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
     # for example map it to utilize Fauxton User Interface in dev environments.
     ports:
-      - "8984:7984"
+      - "8984:5984"
     networks:
       - medicalinsurance
 
@@ -146,7 +146,7 @@ services:
     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
     # for example map it to utilize Fauxton User Interface in dev environments.
     ports:
-      - "9984:7984"
+      - "9984:5984"
     networks:
       - medicalinsurance
 
@@ -161,7 +161,7 @@ services:
     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
     # for example map it to utilize Fauxton User Interface in dev environments.
     ports:
-      - "10984:7984"
+      - "10984:5984"
     networks:
       - medicalinsurance
 
@@ -176,7 +176,7 @@ services:
     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
     # for example map it to utilize Fauxton User Interface in dev environments.
     ports:
-      - "11984:7984"
+      - "11984:5984"
     networks:
       - medicalinsurance
 
@@ -191,7 +191,7 @@ services:
     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
     # for example map it to utilize Fauxton User Interface in dev environments.
     ports:
-      - "12984:7984"
+      - "12984:5984"
     networks:
       - medicalinsurance
 
