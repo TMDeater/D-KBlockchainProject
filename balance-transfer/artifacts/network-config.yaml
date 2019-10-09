@@ -4,7 +4,7 @@
 # blockchain network that are necessary for the applications to interact with it. These are all
 # knowledge that must be acquired from out-of-band sources. This file provides such a source.
 #
-name: "balance-transfer"
+name: "medicalinsurance"
 
 #
 # Any properties with an "x-" prefix will be treated as application-specific, exactly like how naming
@@ -19,7 +19,7 @@ x-type: "hlfv1"
 #
 # Describe what the target network is/does.
 #
-description: "Balance Transfer Network"
+description: "Medical Insurance Network"
 
 #
 # Schema version of the content. Used by the SDK to apply the corresponding parsing rules.
@@ -38,7 +38,7 @@ version: "1.0"
 #
 channels:
   # name of the channel
-  mychannel:
+  medicalinsurancechannel:
     # Required. list of orderers designated by the application to use for transactions on this
     # channel. This list can be a result of access control ("org1" can only access "ordererA"), or
     # operational decisions to share loads from applications among the orderers.  The values must
@@ -104,7 +104,7 @@ channels:
     # this list with the query results of getInstalledChaincodes() and getInstantiatedChaincodes()
     chaincodes:
       # the format follows the "cannonical name" of chaincodes by fabric code
-      - bank_insurance:v0
+      - mycc:v0
 
 #
 # list of participating organizations in this network
@@ -133,9 +133,9 @@ organizations:
     # this way. The SDK should allow applications to set the org admin identity via APIs, and only use
     # this route as an alternative when it exists.
     adminPrivateKey:
-      path: artifacts/channel/crypto-config/peerOrganizations/insurance.com/users/Admin@insurance.com/msp/keystore/5890f0061619c06fb29dea8cb304edecc020fe63f41a6db109f1e227cc1cb2a8_sk
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/insurance.com/users/Admin@insurance.com/msp/keystore/56925ac03a0e1965fdc3bd9e95910f6fdd3e14ddd0d5619f4d40f009991cee66_sk
     signedCert:
-      path: artifacts/channel/crypto-config/peerOrganizations/insurance.com/users/Admin@insurance.com/msp/signcerts/Admin@insurance.com-cert.pem
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/insurance.com/users/Admin@insurance.com/msp/signcerts/Admin@insurance.com-cert.pem
 
   # the profile will contain public information about organizations other than the one it belongs to.
   # These are necessary information to make transaction lifecycles work, including MSP IDs and
@@ -150,9 +150,9 @@ organizations:
     certificateAuthorities:
       - ca-bank
     adminPrivateKey:
-      path: artifacts/channel/crypto-config/peerOrganizations/bank.com/users/Admin@bank.com/msp/keystore/1995b11d6573ed3be52fcd7a5fa477bc0f183e1f5f398c8281d0ce7c2c75a076_sk
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/bank.com/users/Admin@bank.com/msp/keystore/ee2483d7541147b269d7b897d70eafce611ecc1c67972b589fdb7b10862c4627_sk
     signedCert:
-      path: artifacts/channel/crypto-config/peerOrganizations/bank.com/users/Admin@bank.com/msp/signcerts/Admin@bank.com-cert.pem
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/bank.com/users/Admin@bank.com/msp/signcerts/Admin@bank.com-cert.pem
 
   Hospital:
     mspid: HospitalMSP
@@ -162,9 +162,9 @@ organizations:
     certificateAuthorities:
       - ca-hospital
     adminPrivateKey:
-      path: artifacts/channel/crypto-config/peerOrganizations/hospital.com/users/Admin@hospital.com/msp/keystore/1995b11d6573ed3be52fcd7a5fa477bc0f183e1f5f398c8281d0ce7c2c75a076_sk
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/hospital.com/users/Admin@hospital.com/msp/keystore/8a69d5f123741c7bb3c0e03ded1b71657db2ba4109201a4d31f0ffd58d3040ad_sk
     signedCert:
-      path: artifacts/channel/crypto-config/peerOrganizations/hospital.com/users/Admin@hospital.com/msp/signcerts/Admin@hospital.com-cert.pem
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/hospital.com/users/Admin@hospital.com/msp/signcerts/Admin@hospital.com-cert.pem
 
 #
 # List of orderers to send transaction and channel create/update requests to. For the time
@@ -181,7 +181,7 @@ orderers:
       ssl-target-name-override: orderer.insurance.com
 
     tlsCACerts:
-      path: artifacts/channel/crypto-config/ordererOrganizations/insurance.com/orderers/orderer.insurance.com/tls/ca.crt
+      path: ../medicalinsurance-network/crypto-config/ordererOrganizations/insurance.com/orderers/orderer.insurance.com/tls/ca.crt
 
 #
 # List of peers to send various requests to, including endorsement, query
@@ -195,21 +195,21 @@ peers:
     grpcOptions:
       ssl-target-name-override: peer0.insurance.com
     tlsCACerts:
-      path: artifacts/channel/crypto-config/peerOrganizations/insurance.com/peers/peer0.insurance.com/tls/ca.crt
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/insurance.com/peers/peer0.insurance.com/tls/ca.crt
 
   peer1.insurance.com:
     url: grpcs://localhost:8051
     grpcOptions:
       ssl-target-name-override: peer1.insurance.com
     tlsCACerts:
-      path: artifacts/channel/crypto-config/peerOrganizations/insurance.com/peers/peer1.insurance.com/tls/ca.crt
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/insurance.com/peers/peer1.insurance.com/tls/ca.crt
 
   peer0.bank.com:
     url: grpcs://localhost:9051
     grpcOptions:
       ssl-target-name-override: peer0.bank.com
     tlsCACerts:
-      path: artifacts/channel/crypto-config/peerOrganizations/bank.com/peers/peer0.bank.com/tls/ca.crt
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/bank.com/peers/peer0.bank.com/tls/ca.crt
 
   peer1.bank.com:
     url: grpcs://localhost:10051
@@ -217,14 +217,14 @@ peers:
     grpcOptions:
       ssl-target-name-override: peer1.bank.com
     tlsCACerts:
-      path: artifacts/channel/crypto-config/peerOrganizations/bank.com/peers/peer1.bank.com/tls/ca.crt
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/bank.com/peers/peer1.bank.com/tls/ca.crt
 
   peer0.hospital.com:
     url: grpcs://localhost:11051
     grpcOptions:
       ssl-target-name-override: peer0.hospital.com
     tlsCACerts:
-      path: artifacts/channel/crypto-config/peerOrganizations/hospital.com/peers/peer0.hospital.com/tls/ca.crt
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/hospital.com/peers/peer0.hospital.com/tls/ca.crt
 
   peer1.hospital.com:
     url: grpcs://localhost:12051
@@ -232,7 +232,7 @@ peers:
     grpcOptions:
       ssl-target-name-override: peer1.hospital.com
     tlsCACerts:
-      path: artifacts/channel/crypto-config/peerOrganizations/hospital.com/peers/peer1.hospital.com/tls/ca.crt
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/hospital.com/peers/peer1.hospital.com/tls/ca.crt
 
 #
 # Fabric-CA is a special kind of Certificate Authority provided by Hyperledger Fabric which allows
@@ -247,7 +247,7 @@ certificateAuthorities:
     httpOptions:
       verify: false
     tlsCACerts:
-      path: artifacts/channel/crypto-config/peerOrganizations/insurance.com/ca/ca.insurance.com-cert.pem
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/insurance.com/ca/ca.insurance.com-cert.pem
 
     # Fabric-CA supports dynamic user enrollment via REST APIs. A "root" user, a.k.a registrar, is
     # needed to enroll and invoke new users.
@@ -262,19 +262,19 @@ certificateAuthorities:
     httpOptions:
       verify: false
     tlsCACerts:
-      path: artifacts/channel/crypto-config/peerOrganizations/bank.com/ca/ca.bank.com-cert.pem
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/bank.com/ca/ca.bank.com-cert.pem
     registrar:
       - enrollId: admin
         enrollSecret: adminpw
     # [Optional] The optional name of the CA.
     caName: ca-bank
 
-     ca-hospital:
+  ca-hospital:
     url: https://localhost:11054
     httpOptions:
       verify: false
     tlsCACerts:
-      path: artifacts/channel/crypto-config/peerOrganizations/hospital.com/ca/ca.hospital.com-cert.pem
+      path: ../medicalinsurance-network/crypto-config/peerOrganizations/hospital.com/ca/ca.hospital.com-cert.pem
     registrar:
       - enrollId: admin
         enrollSecret: adminpw

@@ -207,7 +207,13 @@ peer chaincode list --instantiated -C medicalinsurancechannel
 peer chaincode invoke -o orderer.insurance.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc --peerAddresses peer0.insurance.com:7051 --tlsRootCertFiles $PEER0_ORG1_CA -c '{"Args":["invoke","a","b","10"]}'
 
 #  MARBLES_PRIVATE
+#  --------------------------------
+
+#  export MARBLE=$(echo -n "{\"name\":\"marble1\",\"color\":\"blue\",\"size\":35,\"owner\":\"tom\",\"price\":99}" | base64 | tr -d \\n)
+
 #  peer chaincode invoke -o orderer.insurance.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/insurance.com/orderers/orderer.insurance.com/msp/tlscacerts/tlsca.insurance.com-cert.pem -C medicalinsurancechannel -n marblesp -c '{"Args":["initMarble"]}'  --transient "{\"marble\":\"$MARBLE\"}"
+
+#  -----------------------------------
 
 #  MARBLES COMMON CHANNEL
 #  peer chaincode invoke -o orderer.insurance.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/insurance.com/orderers/orderer.insurance.com/msp/tlscacerts/tlsca.insurance.com-cert.pem -C medicalinsurancechannel -n marbles --peerAddresses peer0insurance.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/insurance.com/peers/peer0.insurance.com/tls/ca.crt --peerAddresses peer0.bank.com:9051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/bank.com/peers/peer0.bank.com/tls/ca.crt -c '{"Args":["initMarble","marble1","blue","35","tom"]}'
@@ -223,7 +229,7 @@ peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","a"]}'
 peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","b"]}'
 
 #  MARBLES_PRIVATE
-#
+#  peer chaincode query -C medicalinsurancechannel -n marblesp -c '{"Args":["readMarble","marble1"]}'
 
 #  MARBLES COMMON CHANNEL
 #  peer chaincode query -C $CHANNEL_NAME -n marbles -c '{"Args":["readMarble","marble1"]}'

@@ -44,6 +44,7 @@ var port = process.env.PORT || hfc.getConfigSetting('port');
 ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////// SET CONFIGURATONS ////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
+logger.info("app.js")
 app.options('*', cors());
 app.use(cors());
 //support parsing of application/json type post data
@@ -67,6 +68,7 @@ app.use(function(req, res, next) {
 	}
 
 	var token = req.token;
+	logger.info("token:" + token)
 	jwt.verify(token, app.get('secret'), function(err, decoded) {
 		if (err) {
 			res.send({

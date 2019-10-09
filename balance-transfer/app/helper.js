@@ -64,10 +64,12 @@ async function getClientForOrg (userorg, username) {
 var getRegisteredUser = async function(username, userOrg, isJson) {
 	try {
 		var client = await getClientForOrg(userOrg);
+		logger.info("before get user contexts")
 		logger.debug('Successfully initialized the credential stores');
 			// client can now act as an agent for organization Org1
 			// first check to see if the user is already enrolled
 		var user = await client.getUserContext(username, true);
+		logger.info("after get user contexts")
 		if (user && user.isEnrolled()) {
 			logger.info('Successfully loaded member from persistence');
 		} else {
@@ -77,8 +79,8 @@ var getRegisteredUser = async function(username, userOrg, isJson) {
 			let adminUserObj = await client.setUserContext({username: admins[0].username, password: admins[0].secret});
 			let caClient = client.getCertificateAuthority();
 			let secret = await caClient.register({
-				enrollmentID: username,
-				affiliation: userOrg.toLowerCase() + '.department1'
+				enrollmentID: username
+				// affiliation: userOrg.toLowerCase() + '.department1'
 			}, adminUserObj);
 			logger.debug('Successfully got the secret for user %s',username);
 			user = await client.setUserContext({username:username, password:secret});
