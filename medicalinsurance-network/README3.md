@@ -73,7 +73,7 @@ peer channel list
 peer chaincode install -n mycc -v 1.0 -l golang -p github.com/chaincode/chaincode_example02/go/
 
 #  BANK_INSURANCE CHAINCODE
-# peer chaincode install -n mycc -v 1.0 -l golang -p D-KBlockchainProject/chaincode/bank_insurance/go/
+# peer chaincode install -n medicalinsurancechannel -v 1.0 -l golang -p D-KBlockchainProject/chaincode/bank_insurance/go/
 
 #  MARBLES COMMON CHANNEL
 #  peer chaincode install -n marbles -v 1.0 -l golang -p github.com/chaincode/marbles02/go/
@@ -186,6 +186,9 @@ peer chaincode list --installed
 
 #  MYCC CHAINCODE
 peer chaincode instantiate -o orderer.insurance.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc -l golang -v 1.0 -c '{"Args":["init","a","100","b","200"]}'
+
+# Alternative: Medical Insurance Chaincode
+# peer chaincode instantiate -o orderer.insurance.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n medicalinsurancechannel -l golang -v 1.0 -c '{"Args":["init"]}'
 
 # Alternative:  MYCC CHAINCODE
 # peer chaincode instantiate -o orderer.insurance.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc -l golang -v 1.0 -c '{"Args":["init","a","100","b","200"]}' -P "OR ('InsuranceMSP.peer','BankMSP.peer')"
