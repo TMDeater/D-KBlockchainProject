@@ -5,6 +5,7 @@ import ( // Add Golang imports here
 	// Add Hyperledger imports here
 	"encoding/json"
 	"strconv"
+	"fmt"
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	// Add 3rd part imports here
@@ -55,6 +56,25 @@ func CreatePolicy(stub shim.ChaincodeStubInterface, args []string) ([]byte, erro
 
 	acBytesAsJSON, _ := json.Marshal(&ac)
 	stub.PutState(bankRefNo, acBytesAsJSON)
+
+	// create insurance private data with none bank rating first
+	policyInsurancePrivate := nct.PolicyInsurancePrivate{
+		ObjectType:			"PolicyInsurancePrivate",
+		InsurancePolicyNo:	insurancePolicyNo,
+		BankRefNo:			bankRefNo,
+		BankRating:			"NA",
+	}
+	policyInsurancePrivateBytes, err := json.Marshal(policyInsurancePrivate)
+	if err != nil {
+		fmt.Println(err.Error())
+		return nil, nil
+	}
+	err = stub.PutPrivateData("collectionInsurancePrivate", bankRefNo, policyInsurancePrivateBytes)
+	if err != nil {
+		fmt.Println(err.Error())
+		return nil, nil
+	}
+
 	stub.SetEvent("policyCreated", []byte(bankRefNo))
 	return nil, nil
 }

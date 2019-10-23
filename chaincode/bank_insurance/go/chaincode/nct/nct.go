@@ -15,6 +15,7 @@ type AgreementComponent struct {
 
 // Policy information of NCT
 type Policy struct {
+	ObjectType		string	`json:"docType"`
 	InsurancePolicyNo string `json:"insurancePolicyNo"`
 	Status            string `json:"status"`
 	StatusRemark      string `json:"statusRemark"`
@@ -26,4 +27,12 @@ type Policy struct {
 	Currency        string  `json:"currency"`   //HKD,CNY,MOP,USD
 	PayMode         float64 `json:"payMode"`    //1,3,6,12
 	PlanRegion      string  `json:"planRegion"` //HKG or PRC
+}
+
+// PolicyInsurancePrivate information of NCT
+type PolicyInsurancePrivate struct {
+	ObjectType			string	`json:"docType"`
+	InsurancePolicyNo	string	`json:"insurancePolicyNo"`
+	BankRefNo			string	`json:"bankRefNo"`
+	BankRating			string	`json:"bankRating"`		//A,B,C,D
 }

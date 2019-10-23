@@ -45,7 +45,7 @@ func TestChaincode_Invoke_Create(t *testing.T) {
 		t.FailNow()
 	}
 
-	res2 := stub.MockInvoke("updatePolicy", [][]byte{[]byte("invoke"), []byte("updatePolicyByBankRefID"), []byte("1"), []byte("222"), []byte("0"), []byte("remark")})
+	res2 := stub.MockInvoke("updatePolicy", [][]byte{[]byte("invoke"), []byte("updatePolicyByBankRefID"), []byte("1"), []byte("222"), []byte("0"), []byte("remark"), []byte("A")})
 	if res2.Status != shim.OK {
 		t.FailNow()
 	}
@@ -66,6 +66,27 @@ func TestChaincode_Invoke_Create(t *testing.T) {
 	if tempOutput.InsurancePolicyNo != "222" {
 		t.FailNow()
 	}
+	
+	// === Get the insurance private information
+	resultPrivate, err := stub.GetPrivateData("collectionInsurancePrivate","1")
+	if err != nil {
+		fmt.Println("Fail to get private information of insurance")
+		t.FailNow()
+	} else if resultPrivate == nil {
+		fmt.Println("Policy does not exist")
+		t.FailNow()
+	}
+	tempOutputPrivate := nct.PolicyInsurancePrivate{}
+	err = json.Unmarshal(resultPrivate, &tempOutputPrivate)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	t.Logf("\nThe insurance private data record entry:%s\n", string(result))
+	fmt.Println("BankRating: ", tempOutputPrivate.BankRating)
+	if tempOutputPrivate.BankRating != "A" {
+		t.FailNow()
+	}
+
 
 	// if !result.HasNext() {
 	// 	t.FailNow()
